@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Content/UI/menu.uss?fileID=7433441132597879392&amp;guid=d221def06782a7748a3ce98547154492&amp;type=3#menu" />
+    <ui:VisualElement style="justify-content: flex-start; height: 100%; width: 100%; -unity-background-image-tint-color: rgb(255, 255, 255);">
+        <ui:VisualElement name="Container" style="flex-basis: 20%; justify-content: space-around; align-items: center; top: 70%; padding-left: 15%; padding-right: 15%; -unity-background-image-tint-color: rgb(176, 176, 176); flex-direction: row;">
+            <ui:Button text="Start Game" display-tooltip-when-elided="true" name="ButtonStart" class="button menubutton" />
+        </ui:VisualElement>
+        <ui:Label text="Untitled Game" display-tooltip-when-elided="true" style="font-size: 56px; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+</ui:UXML>
