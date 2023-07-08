@@ -129,6 +129,29 @@ namespace _Content.Scripts.zuma
 			return (BallColor)rInt;
 		}
 
+		public GameObject GetRandomBall()
+		{
+			switch (GetRandomBallColor())
+			{
+				case BallColor.red:
+					return redBall;
+					break;
+
+				case BallColor.green:
+					return greenBall;
+					break;
+
+				case BallColor.blue:
+					return blueBall;
+					break;
+
+				case BallColor.yellow:
+					return yellowBall;
+					break;
+			}
+			return yellowBall;
+		}
+		
 		/*
 	 * Private Section
 	 * =============

@@ -5,24 +5,38 @@ namespace _Content.Scripts.zuma
 	public class BallCollider : MonoBehaviour
 	{
 		private MoveBalls moveBallsScript;
-		private bool onceFlag;
+		private bool shooterBall = false;
 
 		void Start()
 		{
-			onceFlag = true;
 			moveBallsScript = GameObject.FindObjectOfType<MoveBalls>();
+		}
+
+		public void MakeShooterBall(bool orly)
+		{
+			if (orly)
+			{
+				this.gameObject.tag = "NewBall";
+				this.gameObject.layer = LayerMask.NameToLayer("Default");
+			}
+			else
+			{
+				this.gameObject.tag = "ActiveBalls";
+				this.gameObject.layer = LayerMask.NameToLayer("ActiveBalls");
+			}
+			
+			shooterBall = orly;
 		}
 
 		void OnCollisionEnter(Collision other)
 		{
-			if (other.gameObject.tag == "ActiveBalls" && onceFlag)
+			Debug.Log(other.gameObject.tag + " " + shooterBall);
+			if (other.gameObject.tag == "ActiveBalls" && shooterBall)
 			{
-				onceFlag = false;
+				MakeShooterBall(false);
 
 				this.GetComponent<Rigidbody>().velocity = Vector2.zero;
 				this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
-				this.gameObject.tag = "ActiveBalls";
-				this.gameObject.layer = LayerMask.NameToLayer("ActiveBalls");
 
 				// Get a vector from the center of the collided ball to the contact point
 				ContactPoint contact = other.contacts[0];
