@@ -28,5 +28,5 @@ Material:
     m_Floats:
     - _SoundColor: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.15566033, b: 0.15566033, a: 1}
+    - _Color: {r: 1, g: 0.1556603, b: 0.1556603, a: 1}
   m_BuildTextureStacks: []
