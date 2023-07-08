@@ -12,8 +12,6 @@ namespace _Content.Scripts.zuma
 		[SerializeField] private Transform originPoint;
 		[SerializeField] private LayerMask hitLayer;
 
-		[SerializeField] private MoveBalls moveBalls;
-
 		private void Start()
 		{
 			CreateBall();
@@ -76,9 +74,9 @@ namespace _Content.Scripts.zuma
 
 		private void CreateBall()
 		{
-			instanceBall = Instantiate(moveBalls.GetRandomBall(), transform.position, Quaternion.identity);
-			instanceBall.SetActive(true);
-			instanceBall.GetComponent<BallCollider>().MakeShooterBall(true);
+			//instanceBall = Instantiate(moveBalls.GetRandomBall(), transform.position, Quaternion.identity);
+			//instanceBall.SetActive(true);
+			//instanceBall.GetComponent<BallCollider>().MakeShooterBall(true);
 		}
 	}
 }
