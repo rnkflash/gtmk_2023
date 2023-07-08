@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 834278845896631769}
   - component: {fileID: 7270597115545928984}
   - component: {fileID: -8425525233931551088}
+  - component: {fileID: 2015727504122333499}
   m_Layer: 6
   m_Name: BlueBall
   m_TagString: ActiveBalls
@@ -114,3 +115,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2015727504122333499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2458308835483714344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d603ec8dbff4c4b91353b8ea29cf804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,23 +4,27 @@ namespace _Content.Scripts.zuma
 {
 	public class RotateLauncher : MonoBehaviour
 	{
-		public GameObject dummyBall;
 		public float ballSpeed = 10;
-		public GameObject instanceBall;
+		[HideInInspector] public GameObject instanceBall;
 
 		private Vector3 lookPos;
+
+		[SerializeField] private Transform originPoint;
+		[SerializeField] private LayerMask hitLayer;
+
+		[SerializeField] private MoveBalls moveBalls;
 
 		private void Start()
 		{
 			CreateBall();
 		}
 
-		// Update is called once per frame
 		private void Update ()
 		{
 			RotatePlayerAlongMousePosition();
 			SetBallPostion();
-			ShootBall();
+			if (Input.GetKeyDown(KeyCode.Mouse0))
+				ShootBall();
 		}
 
 		// Rotate the launcher along the mouse position
@@ -47,52 +51,34 @@ namespace _Content.Scripts.zuma
 
 		private void ShootBall()
 		{
-			if (Input.GetKeyDown(KeyCode.Mouse0))
+			var hitPoint = RayCastBalls();
+			instanceBall.transform.position = hitPoint;
+			instanceBall.GetComponent<Rigidbody>().AddForce(instanceBall.transform.forward * ballSpeed);
+			
+			//raycast from origin to distance
+			//if no hit ball disappears
+			//if hit ball position changes to hit - radius
+			//hitted ball initiates collision logic
+			
+			CreateBall();
+		}
+
+		private Vector3 RayCastBalls()
+		{
+			Ray ray = new Ray(originPoint.position, originPoint.forward);
+			bool cast = Physics.Raycast(ray, out RaycastHit hit, 100.0f, hitLayer);
+			if (cast)
 			{
-				instanceBall.GetComponent<Rigidbody>().AddForce(instanceBall.transform.forward * ballSpeed);
-				CreateBall();
+				
 			}
+			return cast ? hit.point : originPoint.position + originPoint.forward * 100.0f;
 		}
 
 		private void CreateBall()
 		{
-			instanceBall = Instantiate(dummyBall, transform.position, Quaternion.identity);
+			instanceBall = Instantiate(moveBalls.GetRandomBall(), transform.position, Quaternion.identity);
 			instanceBall.SetActive(true);
-
-			instanceBall.tag = "NewBall";
-			instanceBall.gameObject.layer = LayerMask.NameToLayer("Default");
-
-			SetBallColor(instanceBall);
-		}
-
-		private void SetRandomColor(GameObject go)
-		{
-			Color color = new Color(Random.Range(0F,1F), Random.Range(0, 1F), Random.Range(0, 1F));
-			go.GetComponent<Renderer>().material.SetColor("_Color", color);
-		}
-
-		private void SetBallColor(GameObject go)
-		{
-			BallColor randColor = MoveBalls.GetRandomBallColor();
-
-			switch (randColor)
-			{
-				case BallColor.red:
-					go.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
-					break;
-
-				case BallColor.green:
-					go.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
-					break;
-
-				case BallColor.blue:
-					go.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
-					break;
-
-				case BallColor.yellow:
-					go.GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
-					break;
-			}
+			instanceBall.GetComponent<BallCollider>().MakeShooterBall(true);
 		}
 	}
 }
