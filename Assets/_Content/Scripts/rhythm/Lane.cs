@@ -20,6 +20,7 @@ namespace _Content.Scripts.rhythm
         private double nextEvent = -1.0d;
         private float timer;
         private bool startLane = false;
+        private bool pumpingEvents = false;
 
         public Curve curve; 
 
@@ -59,7 +60,14 @@ namespace _Content.Scripts.rhythm
 
         void Update()
         {
-            if (!startLane || nextEvent < 0)
+            if (startLane)
+            {
+                timer = 0;
+                startLane = false;
+                pumpingEvents = true;
+            }
+            
+            if (!pumpingEvents || nextEvent < 0)
                 return;
 
             timer += Time.deltaTime;

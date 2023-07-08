@@ -23,7 +23,7 @@ namespace _Content.Scripts.scenes
 
         private void OnStartClicked()
         {
-            SceneController.Instance.Load("game");
+            SceneController.Instance.Load("zuma_from_scratch_2");
         }
     }
 }

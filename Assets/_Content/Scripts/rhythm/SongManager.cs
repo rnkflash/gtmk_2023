@@ -3,6 +3,7 @@ using System.IO;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 
 namespace _Content.Scripts.rhythm
@@ -50,7 +51,7 @@ namespace _Content.Scripts.rhythm
 
             foreach (var lane in lanes) lane.SetTimeStamps(array);
 
-            //Invoke(nameof(StartSong), songDelayInSeconds);
+            Invoke(nameof(StartSong), songDelayInSeconds);
         }
 
         public void StartSong()

@@ -50,15 +50,12 @@ namespace _Content.Scripts.zuma.scratch
         {
             var p = GetTile(index);
             var gameObject = Instantiate(slimePrefab, p.position, Quaternion.identity);
-            
-            var spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
-            spriteRenderer.sortingOrder = -(int)p.position.y;
-            
             var slime = gameObject.GetComponent<Slime>();
             p.slime = slime;
             slimes.Insert(listIndex, slime);
             slime.tile = index;
             slime.SetType(UnityEngine.Random.Range(0, 4));
+            slime.UpdateSortingOrder();
         }
 
         private void Update()
@@ -151,6 +148,7 @@ namespace _Content.Scripts.zuma.scratch
                 nextTile.slime = slime;
                 slime.tile = nextTileIndex;
                 slime.Move(nextTile.position);
+                slime.SetSortingOrder(-(int)(nextTile.position.y * 10.0f));
             }
         }
         

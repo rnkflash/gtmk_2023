@@ -6,6 +6,11 @@ namespace _Content.Scripts
 	public class SceneController : Singleton<SceneController>
 	{
 
+		public void LoadGame()
+		{
+			Load("game");
+		}
+		
 		public async void Load(string scene)
 		{
 			await LoadSceneAsync(scene, LoadSceneMode.Single);

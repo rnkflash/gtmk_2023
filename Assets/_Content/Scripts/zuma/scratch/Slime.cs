@@ -12,6 +12,13 @@ namespace _Content.Scripts.zuma.scratch
         [HideInInspector] public int type = 0;
         [SerializeField] private Sprite[] sprites;
 
+        private SpriteRenderer spriteRenderer;
+
+        private void Awake()
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
+
         public void SetType(int _type)
         {
             type = _type;
@@ -29,12 +36,23 @@ namespace _Content.Scripts.zuma.scratch
         {
             this.transform.DOComplete();
             moved = false;
+            UpdateSortingOrder();
         }
 
         public void Jump()
         {
             moved = true;
             this.transform.DOJump(this.transform.position, Random.Range(1.0f, 2.0f), 1, 0.5f);
+        }
+
+        public void UpdateSortingOrder()
+        {
+            spriteRenderer.sortingOrder = -(int)(transform.position.y * 10.0f);
+        }
+
+        public void SetSortingOrder(int order)
+        {
+            spriteRenderer.sortingOrder = order;
         }
     }
 }
