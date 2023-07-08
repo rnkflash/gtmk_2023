@@ -15,7 +15,7 @@ TagManager:
   - UI
   - ActiveBalls
   - PostProcessing
-  - 
+  - AimingLayer
   - 
   - 
   - 
@@ -40,6 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 758921081
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Slimes
+    uniqueID: 1422892657
+    locked: 0
+  - name: Foregound
+    uniqueID: 3340225601
     locked: 0

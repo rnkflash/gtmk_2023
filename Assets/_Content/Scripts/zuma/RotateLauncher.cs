@@ -5,7 +5,6 @@ namespace _Content.Scripts.zuma
 	public class RotateLauncher : MonoBehaviour
 	{
 		public float ballSpeed = 10;
-		[HideInInspector] public GameObject instanceBall;
 
 		private Vector3 lookPos;
 
@@ -25,7 +24,6 @@ namespace _Content.Scripts.zuma
 				ShootBall();
 		}
 
-		// Rotate the launcher along the mouse position
 		private void RotatePlayerAlongMousePosition ()
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -35,23 +33,22 @@ namespace _Content.Scripts.zuma
 				lookPos = hit.point;
 
 			Vector3 lookDir = lookPos - transform.position;
-			lookDir.y = 0;
+			lookDir.z = 0;
 
-			transform.LookAt (transform.position + lookDir, Vector3.up);
+			transform.LookAt (transform.position + lookDir, Vector3.back);
 		}
 
-		// Set balls postions and forward w.r.t to the launcher
 		private void SetBallPostion()
 		{
-			instanceBall.transform.forward = transform.forward;
-			instanceBall.transform.position = transform.position + transform.forward * transform.localScale.z;
+			//instanceBall.transform.forward = transform.forward;
+			//instanceBall.transform.position = transform.position + transform.forward * transform.localScale.z;
 		}
 
 		private void ShootBall()
 		{
 			var hitPoint = RayCastBalls();
-			instanceBall.transform.position = hitPoint;
-			instanceBall.GetComponent<Rigidbody>().AddForce(instanceBall.transform.forward * ballSpeed);
+			//instanceBall.transform.position = hitPoint;
+			//instanceBall.GetComponent<Rigidbody>().AddForce(instanceBall.transform.forward * ballSpeed);
 			
 			//raycast from origin to distance
 			//if no hit ball disappears
