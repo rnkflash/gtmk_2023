@@ -4,12 +4,11 @@ namespace _Content.Scripts.zuma
 {
 	public class BallCollider : MonoBehaviour
 	{
-		private MoveBalls moveBallsScript;
 		private bool shooterBall = false;
 
 		void Start()
 		{
-			moveBallsScript = GameObject.FindObjectOfType<MoveBalls>();
+			
 		}
 
 		public void MakeShooterBall(bool orly)
@@ -45,11 +44,11 @@ namespace _Content.Scripts.zuma
 				int currentIdx = other.transform.GetSiblingIndex();
 
 				float angle  = Vector3.Angle(CollisionDir, other.transform.forward);
-				if ( angle > 90)
+				/*if ( angle > 90)
 					moveBallsScript.AddNewBallAt(this.gameObject, currentIdx + 1, currentIdx);
 				else
 					moveBallsScript.AddNewBallAt(this.gameObject, currentIdx, currentIdx);
-
+				*/
 				this.gameObject.GetComponent<BallCollider>().enabled = false;
 			}
 		}
