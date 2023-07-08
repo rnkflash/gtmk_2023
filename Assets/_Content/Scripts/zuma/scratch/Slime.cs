@@ -30,5 +30,11 @@ namespace _Content.Scripts.zuma.scratch
             this.transform.DOComplete();
             moved = false;
         }
+
+        public void Jump()
+        {
+            moved = true;
+            this.transform.DOJump(this.transform.position, Random.Range(1.0f, 2.0f), 1, 0.5f);
+        }
     }
 }

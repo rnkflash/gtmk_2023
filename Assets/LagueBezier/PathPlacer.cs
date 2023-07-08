@@ -8,9 +8,17 @@ namespace _Content.Scripts.zuma.scratch.bezier
 		public float spacing = .1f;
 		public float resolution = 1;
 
-		[HideInInspector] public Vector3[] path;
+		public Vector3[] cachedPath;
+		public Vector3[] path;
 	
-		public Vector3[] CalculatePath () {
+		public Vector3[] CalculatePath ()
+		{
+			if (cachedPath.Length > 0)
+			{
+				path = cachedPath;
+				return cachedPath;
+			}
+
 			Vector2[] points = FindObjectOfType<PathCreator>().path.CalculateEvenlySpacedPoints(spacing, resolution);
 			path = points.Select((p) => new Vector3(p.x, p.y, 0.0f)).ToArray();
 			return path;

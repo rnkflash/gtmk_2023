@@ -63,11 +63,11 @@ namespace _Content.Scripts.zuma.scratch
 
         private void Update()
         {
-            if (Input.anyKeyDown)
+            /*if (Input.anyKeyDown)
             {
                 MoveSlimes();
             }
-            
+            */
         }
 
         public void MoveSlimes()
@@ -113,6 +113,12 @@ namespace _Content.Scripts.zuma.scratch
             if (GetTile(0).slime == null)
             {
                 AddSlime(prefab, 0);
+            }
+            
+            foreach (var slime in slimes)
+            {
+                if (!slime.moved)
+                    slime.Jump();
             }
         }
 
