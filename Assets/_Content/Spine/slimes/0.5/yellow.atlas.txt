@@ -1,0 +1,17 @@
+yellow.png
+size:504,236
+filter:Linear,Linear
+scale:0.5
+yellow_body
+bounds:2,2,246,230
+yellow_eyes
+bounds:465,62,170,35
+rotate:90
+yellow_glare2
+bounds:250,64,124,168
+yellow_mouth
+bounds:465,42,35,18
+yellow_shadow
+bounds:376,3,229,87
+offsets:0,0,230,87
+rotate:90

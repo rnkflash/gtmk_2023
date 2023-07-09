@@ -1,0 +1,16 @@
+blue.png
+size:1180,464
+filter:Linear,Linear
+blue_body
+bounds:2,2,492,460
+blue_eyes
+bounds:1093,77,385,83
+rotate:90
+blue_glare2
+bounds:496,44,421,418
+blue_mouth
+bounds:496,2,199,40
+blue_shadow
+bounds:919,6,456,172
+offsets:1,1,459,174
+rotate:90

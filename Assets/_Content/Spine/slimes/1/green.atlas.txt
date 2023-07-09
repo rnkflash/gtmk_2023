@@ -1,0 +1,17 @@
+green.png
+size:976,464
+filter:Linear,Linear
+green_body
+bounds:2,2,490,458
+green_eyes
+bounds:668,14,242,93
+green_glare2
+bounds:668,109,260,351
+offsets:19,74,446,425
+green_mouth
+bounds:912,15,92,61
+rotate:90
+green_shadow
+bounds:494,4,456,172
+offsets:1,1,459,174
+rotate:90
