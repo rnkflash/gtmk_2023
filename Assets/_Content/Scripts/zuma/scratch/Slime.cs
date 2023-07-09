@@ -11,23 +11,29 @@ namespace _Content.Scripts.zuma.scratch
         [HideInInspector] public bool moved = false;
         [HideInInspector] public int type = 0;
         [HideInInspector] public Curve curve;
-        [SerializeField] private Sprite[] sprites;
+        [SerializeField] private GameObject[] spines;
         [SerializeField] private float jumpPowerMin = 0.1f;
         [SerializeField] private float jumpPowerMax = 0.2f;
         [SerializeField] private float jumpDuration = 0.5f;
 
-        private SpriteRenderer spriteRenderer;
+        private MeshRenderer spriteRenderer;
         [HideInInspector] public bool isAlive = true;
 
         private void Awake()
         {
-            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            SetType(0);
         }
 
         public void SetType(int _type)
         {
             type = _type;
-            GetComponentInChildren<SpriteRenderer>().sprite = sprites[type];
+            foreach (var spine in spines)
+            {
+                spine.SetActive(false);
+            }
+            
+            spines[type].SetActive(true);
+            spriteRenderer = spines[type].GetComponent<MeshRenderer>();
         }
         
         public void Move(Vector3 destination)
@@ -52,7 +58,7 @@ namespace _Content.Scripts.zuma.scratch
 
         public void UpdateSortingOrder()
         {
-            spriteRenderer.sortingOrder = -(int)(transform.position.y * 10.0f);
+            spriteRenderer.sortingOrder = 10000 - (int)(transform.position.y * 10.0f);
         }
 
         public void SetSortingOrder(int order)

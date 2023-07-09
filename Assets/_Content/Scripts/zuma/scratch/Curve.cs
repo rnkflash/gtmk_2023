@@ -149,15 +149,51 @@ namespace _Content.Scripts.zuma.scratch
                 nextTile.slime = slime;
                 slime.tile = nextTileIndex;
                 slime.Move(nextTile.position);
-                slime.SetSortingOrder(-(int)(nextTile.position.y * 10.0f));
+                slime.SetSortingOrder(10000 - (int)(nextTile.position.y * 10.0f));
             }
         }
 
         public void ChainKillSlimes(Slime slime)
         {
-            //find all slimes of same color that are connected
-            //chain death of same color slimes
+            var index = slimes.IndexOf(slime);
+
+            var neighbours = new List<Slime>();
+            if (index + 1 < slimes.Count)
+            {
+                int connectedTile = slime.tile;
+                for (int i = index + 1; i < slimes.Count; i++)
+                {
+                    if (slimes[i].type == slime.type && Math.Abs(connectedTile - slimes[i].tile) <= 1)
+                    {
+                        neighbours.Add(slimes[i]);
+                        connectedTile = slimes[i].tile;
+                    }
+                    else
+                        break;
+                }
+            }
+
+            if (index - 1 >= 0)
+            {
+                int connectedTile = slime.tile;
+                for (int i = index - 1; i >= 0; i--)
+                {
+                    if (slimes[i].type == slime.type && Math.Abs(connectedTile - slimes[i].tile) <= 1)
+                    {
+                        neighbours.Add(slimes[i]);
+                        connectedTile = slimes[i].tile;
+                    }
+                    else
+                        break;
+                }
+            }
+
             KillSlime(slime);
+
+            foreach (var slimeI in neighbours)
+            {
+                KillSlime(slimeI);
+            }
         }
 
         private void KillSlime(Slime slime)
