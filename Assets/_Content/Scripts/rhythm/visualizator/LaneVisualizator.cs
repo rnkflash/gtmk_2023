@@ -16,6 +16,9 @@ public class LaneVisualizator : MonoBehaviour
     [SerializeField] private float terminatorLine = -0.25f;
     [SerializeField] private float appearLine = 5.0f;
 
+    public ParticleSystem vfxGood;
+    public ParticleSystem vfxBad;
+
     private bool playing = false;
 
     public void ImportLane()
@@ -51,11 +54,16 @@ public class LaneVisualizator : MonoBehaviour
             if (note.transform.localPosition.y < appearLine && !note.activeSelf)
             {
                 note.SetActive(true);
+                
             }
             
             if (note.transform.localPosition.y < terminatorLine)
             {
                 destructionList.Add(note);
+                if (vfxGood != null)
+                {
+                    vfxGood.Emit(1);
+                }
             }
         }
 
@@ -65,6 +73,7 @@ public class LaneVisualizator : MonoBehaviour
             {
                 Destroy(note);
                 notes.Remove(note);
+                //vfxBad.Emit(1);
             }
         }
     }

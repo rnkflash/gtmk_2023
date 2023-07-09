@@ -64,33 +64,45 @@ namespace _Content.Scripts.zuma
 			if (note == "Q")
 			{
 				color = Color.blue;
-				shootVfxBlue1.Emit(1);
-				shootVfxBlue2.Emit(1);
-				shootVfxBlue3.Emit(1);
+				if (shootVfxBlue1 != null)
+				{
+					shootVfxBlue1.Emit(1);
+					shootVfxBlue2.Emit(1);
+					shootVfxBlue3.Emit(1);
+				}
 			}
 			
 			if (note == "W")
 			{
 				color = Color.green;
-				shootVfxGreen1.Emit(1);
-				shootVfxGreen2.Emit(1);
-				shootVfxGreen3.Emit(1);
+				if (shootVfxGreen1 != null)
+				{
+					shootVfxGreen1.Emit(1);
+					shootVfxGreen2.Emit(1);
+					shootVfxGreen3.Emit(1);
+				}
 			}
 
 			if (note == "E")
 			{
 				color = Color.red;
-				shootVfxRed1.Emit(1);
-				shootVfxRed2.Emit(1);
-				shootVfxRed3.Emit(1);
+				if (shootVfxRed1 != null)
+				{
+					shootVfxRed1.Emit(1);
+					shootVfxRed2.Emit(1);
+					shootVfxRed3.Emit(1);
+				}
 			}
 
 			if (note == "R")
 			{
 				color = Color.yellow;
-				shootVfxYellow1.Emit(1);
-				shootVfxYellow2.Emit(1);
-				shootVfxYellow3.Emit(1);
+				if (shootVfxYellow1 != null)
+				{
+					shootVfxYellow1.Emit(1);
+					shootVfxYellow2.Emit(1);
+					shootVfxYellow3.Emit(1);
+				}
 			}
 				
 			
