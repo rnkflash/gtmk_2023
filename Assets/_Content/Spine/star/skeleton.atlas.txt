@@ -1,0 +1,5 @@
+skeleton.png
+size:156,144
+filter:Linear,Linear
+Star
+bounds:2,2,150,137
