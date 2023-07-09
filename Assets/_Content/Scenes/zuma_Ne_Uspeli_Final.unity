@@ -31787,7 +31787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 5
-  input: 0
+  input: 113
   timeStamps: []
   fireEvent:
     m_PersistentCalls:
@@ -31858,7 +31858,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ad3960b39422b5446bc0e998ffda7f2f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b02be60bac4509240bdc804e21271ae5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -31965,7 +31965,7 @@ MonoBehaviour:
   songDelayInSeconds: 3
   marginOfError: 0.25
   inputDelayInMilliseconds: 0
-  fileLocation: Final_GMTKek_01.mid
+  fileLocation: Final_GMTKek_02.mid
   noteTime: 0
   noteSpawnY: 0
   noteTapY: 0
@@ -37350,7 +37350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 0
-  input: 0
+  input: 114
   timeStamps: []
   fireEvent:
     m_PersistentCalls:
@@ -43879,7 +43879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 2
-  input: 0
+  input: 101
   timeStamps: []
   fireEvent:
     m_PersistentCalls:
@@ -44407,7 +44407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 4
-  input: 0
+  input: 119
   timeStamps: []
   fireEvent:
     m_PersistentCalls:
