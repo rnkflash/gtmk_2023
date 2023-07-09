@@ -54,6 +54,7 @@ namespace _Content.Scripts.zuma.scratch
             p.slime = slime;
             slimes.Insert(listIndex, slime);
             slime.tile = index;
+            slime.curve = this;
             slime.SetType(UnityEngine.Random.Range(0, 4));
             slime.UpdateSortingOrder();
         }
@@ -150,6 +151,15 @@ namespace _Content.Scripts.zuma.scratch
                 slime.Move(nextTile.position);
                 slime.SetSortingOrder(-(int)(nextTile.position.y * 10.0f));
             }
+        }
+
+        public void DestroySlime(Slime slime)
+        {
+            var tile = GetTile(slime.tile);
+            tile.slime = null;
+            slimes.Remove(slime);
+            slime.curve = null;
+            Destroy(slime.gameObject);
         }
         
     }

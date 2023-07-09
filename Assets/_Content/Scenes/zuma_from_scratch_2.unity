@@ -365,7 +365,7 @@ MonoBehaviour:
   songDelayInSeconds: 3
   marginOfError: 0
   inputDelayInMilliseconds: 0
-  fileLocation: gmtkek3.mid
+  fileLocation: GMTKek3.mid
   noteTime: 0
   noteSpawnY: 0
   noteTapY: 0
@@ -647,11 +647,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d55e679e834013b9b7ae7993dfffd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeed: 1500
   originPoint: {fileID: 1296665293}
   hitLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   laserGun: {fileID: 1296665295}
 --- !u!1 &334702466
 GameObject:
@@ -1986,6 +1985,9 @@ MonoBehaviour:
   lineRenderer: {fileID: 1296665294}
   originPoint: {fileID: 1296665293}
   maxDistance: 10
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1297840446
 GameObject:
   m_ObjectHideFlags: 0
