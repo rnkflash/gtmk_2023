@@ -28,6 +28,8 @@ namespace _Content.Scripts.rhythm
 
         public LaneVisualizator[] laneVisualizators;
 
+        public BeatMachine beatMachine;
+
         public float noteDespawnY
         {
             get { return noteTapY - (noteSpawnY - noteTapY); }
@@ -71,6 +73,7 @@ namespace _Content.Scripts.rhythm
             audioSource.Play();
             foreach (var lane in lanes) lane.StartLane();
             foreach (var lane in laneVisualizators) lane.StartSong();
+            beatMachine.StartMF();
         }
 
         public static double GetAudioSourceTime()
