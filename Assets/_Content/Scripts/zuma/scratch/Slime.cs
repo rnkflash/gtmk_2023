@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using Spine.Unity;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace _Content.Scripts.zuma.scratch
@@ -20,6 +21,8 @@ namespace _Content.Scripts.zuma.scratch
 
         private MeshRenderer spriteRenderer;
         [HideInInspector] public bool isAlive = true;
+
+        public UnityEvent dieEvent;
 
         private void Awake()
         {
@@ -83,6 +86,7 @@ namespace _Content.Scripts.zuma.scratch
         {
             var skeleton = spines[type].GetComponent<SkeletonAnimation>();
             skeleton.AnimationState.SetAnimation(0, "death", false).MixDuration = 0;
+            dieEvent?.Invoke();
             yield return new WaitForSeconds(1.0f);
             Destroy(this.gameObject);
         }
