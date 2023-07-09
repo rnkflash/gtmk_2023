@@ -13,6 +13,8 @@ namespace _Content.Scripts.zuma
 		public Laser laserGun;
 		public Curve curve;
 
+		public ParticleSystem shootVfx;
+
 		private void RotatePlayerAlongMousePosition ()
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -51,6 +53,8 @@ namespace _Content.Scripts.zuma
 			if (note == "R")
 				color = Color.yellow;
 			
+			shootVfx.Emit(1);
+			
 			laserGun.Fire(color);
 		}
 
@@ -78,6 +82,8 @@ namespace _Content.Scripts.zuma
 		{
 			if (curve == null)
 				return;
+			
+			
 
 			Slime slime = curve.GetRandomSlime(Random.Range(0,4));
 			if (slime != null)

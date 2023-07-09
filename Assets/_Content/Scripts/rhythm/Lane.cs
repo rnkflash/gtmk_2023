@@ -11,8 +11,6 @@ namespace _Content.Scripts.rhythm
     {
         public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
         public KeyCode input;
-        public GameObject notePrefab;
-        List<Note> notes = new List<Note>();
         public List<double> timeStamps = new List<double>();
 
         int spawnIndex = 0;
@@ -24,6 +22,8 @@ namespace _Content.Scripts.rhythm
         private bool pumpingEvents = false;
 
         public UnityEvent fireEvent;
+        public UnityEvent hitEvent;
+        public UnityEvent missEvent;
 
         public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
         {
@@ -80,18 +80,6 @@ namespace _Content.Scripts.rhythm
             }
             
 
-            /*
-            if (spawnIndex < timeStamps.Count)
-            {
-                if (SongManager.GetAudioSourceTime() >= timeStamps[spawnIndex] - SongManager.Instance.noteTime)
-                {
-                    var note = Instantiate(notePrefab, transform);
-                    notes.Add(note.GetComponent<Note>());
-                    note.GetComponent<Note>().assignedTime = (float)timeStamps[spawnIndex];
-                    spawnIndex++;
-                }
-            }
-
             if (inputIndex < timeStamps.Count)
             {
                 double timeStamp = timeStamps[inputIndex];
@@ -104,32 +92,32 @@ namespace _Content.Scripts.rhythm
                     if (Math.Abs(audioTime - timeStamp) < marginOfError)
                     {
                         Hit();
-                        print($"Hit on {inputIndex} note");
-                        Destroy(notes[inputIndex].gameObject);
+                        //print($"Hit on {inputIndex} note");
                         inputIndex++;
                     }
                     else
                     {
-                        print($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
+                        //print($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
                     }
                 }
 
                 if (timeStamp + marginOfError <= audioTime)
                 {
                     Miss();
-                    print($"Missed {inputIndex} note");
+                    print($"Missed {inputIndex} note, {timeStamp} | {marginOfError} | {audioTime}");
                     inputIndex++;
                 }
             }
-            */
         }
 
         private void Hit()
         {
+            hitEvent?.Invoke();        
         }
 
         private void Miss()
         {
+            missEvent?.Invoke();
         }
     }
 }

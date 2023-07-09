@@ -5481,7 +5481,7 @@ MonoBehaviour:
   - {fileID: 557443287}
   - {fileID: 1792402750}
   songDelayInSeconds: 3
-  marginOfError: 0
+  marginOfError: 0.25
   inputDelayInMilliseconds: 0
   fileLocation: GMTKek3.mid
   noteTime: 0
@@ -5505,7 +5505,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2040744148}
   - {fileID: 1883245921}
   - {fileID: 1787795471}
   - {fileID: 557443286}
@@ -5771,6 +5770,7 @@ MonoBehaviour:
     m_Bits: 256
   laserGun: {fileID: 1296665295}
   curve: {fileID: 992524252}
+  shootVfx: {fileID: 1684538280}
 --- !u!1 &334702466
 GameObject:
   m_ObjectHideFlags: 0
@@ -6179,7 +6179,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 287329986}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &557443287
 MonoBehaviour:
@@ -6194,10 +6194,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 2
-  input: 0
-  notePrefab: {fileID: 0}
+  input: 101
   timeStamps: []
   fireEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  hitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  missEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 324733734}
@@ -6357,6 +6362,10 @@ PrefabInstance:
     - target: {fileID: 4743884870233617365, guid: d9c878eae8043584db0399b0f5d20ffc, type: 3}
       propertyPath: m_Name
       value: VFX_ExplosionFire_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743884870233617365, guid: d9c878eae8043584db0399b0f5d20ffc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5421952470203137615, guid: d9c878eae8043584db0399b0f5d20ffc, type: 3}
       propertyPath: m_RootOrder
@@ -27603,9 +27612,9 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -37395,7 +37404,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 287329986}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1787795472
 MonoBehaviour:
@@ -37410,10 +37419,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 4
-  input: 0
-  notePrefab: {fileID: 0}
+  input: 119
   timeStamps: []
   fireEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  hitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  missEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 324733734}
@@ -37575,7 +37589,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 287329986}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1792402750
 MonoBehaviour:
@@ -37590,10 +37604,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 0
-  input: 0
-  notePrefab: {fileID: 0}
+  input: 114
   timeStamps: []
   fireEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  hitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  missEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 324733734}
@@ -37755,7 +37774,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 287329986}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1883245922
 MonoBehaviour:
@@ -37770,10 +37789,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 5
-  input: 0
-  notePrefab: {fileID: 0}
+  input: 113
   timeStamps: []
   fireEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  hitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  missEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 324733734}
@@ -42779,69 +42803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aecfb66207446541b21880dd2a3ccc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2040744147
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2040744148}
-  - component: {fileID: 2040744149}
-  m_Layer: 0
-  m_Name: Lane_slimes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2040744148
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040744147}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 287329986}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2040744149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040744147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbffa7447f574595940a80adb27746da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  noteRestriction: 7
-  input: 0
-  notePrefab: {fileID: 0}
-  timeStamps: []
-  fireEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 992524252}
-        m_TargetAssemblyTypeName: _Content.Scripts.zuma.scratch.Curve, Assembly-CSharp
-        m_MethodName: MoveSlimes
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &2106230335
 GameObject:
   m_ObjectHideFlags: 0
@@ -42967,7 +42928,7 @@ PrefabInstance:
     - target: {fileID: 2168396519086799943, guid: 1e18ae58ecac51e4b98df024eaf26425, type: 3}
       propertyPath: lane
       value: 
-      objectReference: {fileID: 2040744149}
+      objectReference: {fileID: 0}
     - target: {fileID: 2168396519086800312, guid: 1e18ae58ecac51e4b98df024eaf26425, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
