@@ -24,6 +24,9 @@ namespace _Content.Scripts.rhythm
         public UnityEvent fireEvent;
         public UnityEvent hitEvent;
         public UnityEvent missEvent;
+        
+        public ParticleSystem vfxGood;
+        public ParticleSystem vfxBad;
 
         public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
         {
@@ -92,6 +95,10 @@ namespace _Content.Scripts.rhythm
                     if (Math.Abs(audioTime - timeStamp) < marginOfError)
                     {
                         Hit();
+                        if (vfxGood != null)
+                        {
+                            vfxGood.Emit(1);
+                        }
                         //print($"Hit on {inputIndex} note");
                         inputIndex++;
                     }
@@ -106,6 +113,10 @@ namespace _Content.Scripts.rhythm
                     Miss();
                     print($"Missed {inputIndex} note, {timeStamp} | {marginOfError} | {audioTime}");
                     inputIndex++;
+                    if (vfxBad != null)
+                    {
+                        vfxBad.Emit(1);
+                    }
                 }
             }
         }

@@ -566,9 +566,7 @@ Transform:
   m_LocalPosition: {x: -12.21, y: -3.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1000767837}
-  - {fileID: 682627807}
+  m_Children: []
   m_Father: {fileID: 2022760016}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -590,8 +588,6 @@ MonoBehaviour:
   playLine: 0
   terminatorLine: -0.25
   appearLine: 5.61
-  vfxGood: {fileID: 1000767839}
-  vfxBad: {fileID: 682627809}
 --- !u!1 &209878451
 GameObject:
   m_ObjectHideFlags: 0
@@ -5749,11 +5745,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268853784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.006, y: 0, z: -0.068693876}
+  m_LocalPosition: {x: -10.514463, y: -2.9518526, z: -1.2539396}
   m_LocalScale: {x: 0.30773, y: 0.30773, z: 0.30773}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2102565533}
+  m_Father: {fileID: 1976377511}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &268853786
@@ -5845,7 +5841,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -15988,11 +15984,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407825553}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.011, y: 0, z: -0.068693876}
+  m_LocalPosition: {x: -9.507444, y: -2.9518526, z: -1.2539396}
   m_LocalScale: {x: 0.30773, y: 0.30773, z: 0.30773}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709315681}
+  m_Father: {fileID: 1273793356}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &407825555
@@ -16084,7 +16080,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -40863,11 +40859,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682627806}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0050268173, y: -0.001988411, z: -0.068693876}
+  m_LocalPosition: {x: -11.003477, y: -2.9538362, z: -1.2539396}
   m_LocalScale: {x: 0.30773, y: 0.30773, z: 0.30773}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 115738841}
+  m_Father: {fileID: 939297321}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &682627808
@@ -40959,7 +40955,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -45812,9 +45808,7 @@ Transform:
   m_LocalPosition: {x: -10.73, y: -3.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 407825554}
-  - {fileID: 1628996854}
+  m_Children: []
   m_Father: {fileID: 2022760016}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45836,8 +45830,6 @@ MonoBehaviour:
   playLine: 0
   terminatorLine: -0.25
   appearLine: 5.61
-  vfxGood: {fileID: 407825556}
-  vfxBad: {fileID: 1628996856}
 --- !u!1 &727594899
 GameObject:
   m_ObjectHideFlags: 0
@@ -46368,7 +46360,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1000767837}
+  - {fileID: 682627807}
   m_Father: {fileID: 976081676}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46408,6 +46402,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  vfxGood: {fileID: 1000767839}
+  vfxBad: {fileID: 682627809}
 --- !u!1 &976081675
 GameObject:
   m_ObjectHideFlags: 0
@@ -51493,11 +51489,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000767836}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.009987831, y: 0, z: -0.068693876}
+  m_LocalPosition: {x: -10.988462, y: -2.9518526, z: -1.2539396}
   m_LocalScale: {x: 0.30773, y: 0.30773, z: 0.30773}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 115738841}
+  m_Father: {fileID: 939297321}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &1000767838
@@ -51589,7 +51585,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -66605,6 +66601,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  vfxGood: {fileID: 407825556}
+  vfxBad: {fileID: 1628996856}
 --- !u!4 &1273793356
 Transform:
   m_ObjectHideFlags: 0
@@ -66616,7 +66614,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 407825554}
+  - {fileID: 1628996854}
   m_Father: {fileID: 976081676}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -67762,11 +67762,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524181895}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02199173, y: 0, z: -0.068693876}
+  m_LocalPosition: {x: -9.996458, y: -2.9518526, z: -1.2539396}
   m_LocalScale: {x: 0.30773, y: 0.30773, z: 0.30773}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2077276221}
+  m_Father: {fileID: 1672821851}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &1524181897
@@ -67858,7 +67858,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -77772,11 +77772,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628996853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.004009247, y: -0.001988411, z: -0.068693876}
+  m_LocalPosition: {x: -9.522459, y: -2.9538362, z: -1.2539396}
   m_LocalScale: {x: 0.30773, y: 0.30773, z: 0.30773}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709315681}
+  m_Father: {fileID: 1273793356}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &1628996855
@@ -77868,7 +77868,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -82735,11 +82735,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642806442}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.007, y: -0.001988411, z: -0.068693876}
+  m_LocalPosition: {x: -10.011473, y: -2.9538362, z: -1.2539396}
   m_LocalScale: {x: 0.30773, y: 0.30773, z: 0.30773}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2077276221}
+  m_Father: {fileID: 1672821851}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &1642806444
@@ -82831,7 +82831,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -87731,7 +87731,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1524181896}
+  - {fileID: 1642806443}
   m_Father: {fileID: 976081676}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -87771,6 +87773,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  vfxGood: {fileID: 1524181898}
+  vfxBad: {fileID: 1642806445}
 --- !u!1 &1690795959
 GameObject:
   m_ObjectHideFlags: 0
@@ -88259,7 +88263,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 268853785}
+  - {fileID: 2135110406}
   m_Father: {fileID: 976081676}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88299,6 +88305,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  vfxGood: {fileID: 268853787}
+  vfxBad: {fileID: 2135110408}
 --- !u!1 &2013066062
 GameObject:
   m_ObjectHideFlags: 0
@@ -93241,9 +93249,7 @@ Transform:
   m_LocalPosition: {x: -11.23, y: -3.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1524181896}
-  - {fileID: 1642806443}
+  m_Children: []
   m_Father: {fileID: 2022760016}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -93265,8 +93271,6 @@ MonoBehaviour:
   playLine: 0
   terminatorLine: -0.25
   appearLine: 5.61
-  vfxGood: {fileID: 1524181898}
-  vfxBad: {fileID: 1642806445}
 --- !u!1 &2102565532
 GameObject:
   m_ObjectHideFlags: 0
@@ -93295,9 +93299,7 @@ Transform:
   m_LocalPosition: {x: -11.72, y: -3.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 268853785}
-  - {fileID: 2135110406}
+  m_Children: []
   m_Father: {fileID: 2022760016}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -93319,8 +93321,6 @@ MonoBehaviour:
   playLine: 0
   terminatorLine: -0.25
   appearLine: 5.61
-  vfxGood: {fileID: 268853787}
-  vfxBad: {fileID: 2135110408}
 --- !u!1 &2122679595
 GameObject:
   m_ObjectHideFlags: 0
@@ -98228,11 +98228,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135110405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.021027565, y: -0.001988411, z: -0.068693876}
+  m_LocalPosition: {x: -10.529478, y: -2.9538362, z: -1.2539396}
   m_LocalScale: {x: 0.30773, y: 0.30773, z: 0.30773}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2102565533}
+  m_Father: {fileID: 1976377511}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &2135110407
@@ -98324,7 +98324,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
