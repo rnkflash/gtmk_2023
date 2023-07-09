@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Content.Scripts.zuma.scratch;
+using UnityEngine;
 
 namespace _Content.Scripts.zuma
 {
@@ -9,14 +10,8 @@ namespace _Content.Scripts.zuma
 		[SerializeField] private Transform originPoint;
 		[SerializeField] private LayerMask hitLayer;
 
-		public Laser laserGun; 
-
-		private void Update ()
-		{
-			RotatePlayerAlongMousePosition();
-			if (Input.GetKeyDown(KeyCode.Mouse0))
-				ShootBall();
-		}
+		public Laser laserGun;
+		public Curve curve;
 
 		private void RotatePlayerAlongMousePosition ()
 		{
@@ -78,5 +73,16 @@ namespace _Content.Scripts.zuma
 		{
 			FireLaser("R");
 		}
+
+		public void Aim()
+		{
+			if (curve == null)
+				return;
+
+			Slime slime = curve.GetRandomSlime(Random.Range(0,4));
+			if (slime != null)
+				transform.LookAt (slime.transform.position, Vector3.back);
+		}
+		
 	}
 }
