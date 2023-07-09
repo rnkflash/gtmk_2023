@@ -29,7 +29,7 @@ namespace _Content.Scripts.zuma.scratch
         {
             moved = true;
             //this.transform.DOMove(destination, 0.5f);
-            this.transform.DOJump(destination, Random.Range(1.0f, 2.0f), 1, 0.5f);
+            this.transform.DOJump(destination, Random.Range(0.1f, 0.2f), 1, 0.5f);
         }
 
         public void FinishMovements()
@@ -42,7 +42,7 @@ namespace _Content.Scripts.zuma.scratch
         public void Jump()
         {
             moved = true;
-            this.transform.DOJump(this.transform.position, Random.Range(1.0f, 2.0f), 1, 0.5f);
+            this.transform.DOJump(this.transform.position, Random.Range(0.1f, 0.2f), 1, 0.5f);
         }
 
         public void UpdateSortingOrder()

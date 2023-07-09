@@ -9,7 +9,8 @@ Shader "Unlit/NewUnlitShader"
     SubShader
     {
         Tags { "RenderType"="Transparent" }
-        Blend SrcAlpha OneMinusSrcAlpha
+        //Blend SrcAlpha OneMinusSrcAlpha
+        Blend One One
         LOD 100
 
         Pass
@@ -55,6 +56,7 @@ Shader "Unlit/NewUnlitShader"
                 fixed4 col = tex2D(_MainTex, i.uv) * _Color;
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
+                col.xyz = col.xyz * col.a;
                 return col + _SoundColor;
             }
             ENDCG
