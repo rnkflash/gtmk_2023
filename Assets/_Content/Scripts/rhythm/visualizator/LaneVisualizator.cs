@@ -11,9 +11,10 @@ public class LaneVisualizator : MonoBehaviour
 
     private List<GameObject> notes = new List<GameObject>();
 
-    private float noteMoveSpeed = 333.0f;
-    private float playLine = -333.0f;
-    private float terminatorLine = -524.0f;
+    [SerializeField] private float noteMoveSpeed = 5.0f;
+    [SerializeField] private float playLine = 0f;
+    [SerializeField] private float terminatorLine = -0.25f;
+    [SerializeField] private float appearLine = 5.0f;
 
     private bool playing = false;
 
@@ -27,6 +28,7 @@ public class LaneVisualizator : MonoBehaviour
             var note = Instantiate(notePrefab, transform);
             note.transform.localPosition = new Vector3(0.0f,playLine + noteMoveSpeed * (float)timeStamp,0.0f);
             notes.Add(note);
+            note.SetActive(false);
         }
     }
 
@@ -45,7 +47,13 @@ public class LaneVisualizator : MonoBehaviour
         foreach (var note in notes)
         {
             note.transform.Translate(Vector3.down * Time.deltaTime * noteMoveSpeed, Space.Self);
-            if (note.transform.position.y < terminatorLine)
+            
+            if (note.transform.localPosition.y < appearLine && !note.activeSelf)
+            {
+                note.SetActive(true);
+            }
+            
+            if (note.transform.localPosition.y < terminatorLine)
             {
                 destructionList.Add(note);
             }
