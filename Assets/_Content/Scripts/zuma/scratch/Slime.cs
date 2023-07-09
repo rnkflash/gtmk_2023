@@ -11,6 +11,9 @@ namespace _Content.Scripts.zuma.scratch
         [HideInInspector] public bool moved = false;
         [HideInInspector] public int type = 0;
         [SerializeField] private Sprite[] sprites;
+        [SerializeField] private float jumpPowerMin = 0.1f;
+        [SerializeField] private float jumpPowerMax = 0.2f;
+        [SerializeField] private float jumpDuration = 0.5f;
 
         private SpriteRenderer spriteRenderer;
 
@@ -29,7 +32,7 @@ namespace _Content.Scripts.zuma.scratch
         {
             moved = true;
             //this.transform.DOMove(destination, 0.5f);
-            this.transform.DOJump(destination, Random.Range(0.1f, 0.2f), 1, 0.5f);
+            this.transform.DOJump(destination, Random.Range(jumpPowerMin, jumpPowerMax), 1, jumpDuration);
         }
 
         public void FinishMovements()
@@ -42,7 +45,7 @@ namespace _Content.Scripts.zuma.scratch
         public void Jump()
         {
             moved = true;
-            this.transform.DOJump(this.transform.position, Random.Range(0.1f, 0.2f), 1, 0.5f);
+            this.transform.DOJump(this.transform.position, Random.Range(jumpPowerMin, jumpPowerMax), 1, jumpDuration);
         }
 
         public void UpdateSortingOrder()
