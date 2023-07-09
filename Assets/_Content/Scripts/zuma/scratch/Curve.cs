@@ -153,12 +153,20 @@ namespace _Content.Scripts.zuma.scratch
             }
         }
 
-        public void DestroySlime(Slime slime)
+        public void ChainKillSlimes(Slime slime)
+        {
+            //find all slimes of same color that are connected
+            //chain death of same color slimes
+            KillSlime(slime);
+        }
+
+        private void KillSlime(Slime slime)
         {
             var tile = GetTile(slime.tile);
             tile.slime = null;
             slimes.Remove(slime);
             slime.curve = null;
+            slime.isAlive = false;
             Destroy(slime.gameObject);
         }
         

@@ -36,12 +36,6 @@ namespace _Content.Scripts.zuma
             lineRenderer.SetPosition(0, originPoint.position);
             lineRenderer.SetPosition(1, new Vector3(hit.x, hit.y, 0));
 
-            var slime = RaycastSlime(0.42f);
-            if (slime)
-            {
-                slime.Die();
-            }
-            
             laserTimer -= Time.deltaTime;
             if (laserTimer <= 0)
             {
@@ -84,6 +78,12 @@ namespace _Content.Scripts.zuma
 
         public void Fire(Color color)
         {
+            var slime = RaycastSlime(0.42f);
+            if (slime != null && slime.isAlive)
+            {
+                slime.HitByLaser();
+            }
+            
             Activate();
             laserTimer = 0.1f;
         }

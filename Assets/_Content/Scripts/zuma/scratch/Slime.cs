@@ -17,6 +17,7 @@ namespace _Content.Scripts.zuma.scratch
         [SerializeField] private float jumpDuration = 0.5f;
 
         private SpriteRenderer spriteRenderer;
+        [HideInInspector] public bool isAlive = true;
 
         private void Awake()
         {
@@ -59,9 +60,9 @@ namespace _Content.Scripts.zuma.scratch
             spriteRenderer.sortingOrder = order;
         }
 
-        public void Die()
+        public void HitByLaser()
         {
-            curve?.DestroySlime(this);
+            curve?.ChainKillSlimes(this);
         }
     }
 }
