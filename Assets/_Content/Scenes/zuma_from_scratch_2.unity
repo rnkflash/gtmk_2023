@@ -229,6 +229,66 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2168396519086800312, guid: 1e18ae58ecac51e4b98df024eaf26425, type: 3}
   m_PrefabInstance: {fileID: 114479122}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &222045769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 222045771}
+  - component: {fileID: 222045770}
+  m_Layer: 0
+  m_Name: SlimesBeatMachine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &222045770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222045769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212b289a9c50d1542ab1e6a70c98cc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireThis:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 992524252}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.scratch.Curve, Assembly-CSharp
+        m_MethodName: MoveSlimes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  bpm: 180
+--- !u!4 &222045771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222045769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.96235555, y: -0.26389855, z: 0.0650988}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &287329983
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +417,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 287329984}
   lanes:
-  - {fileID: 2040744149}
   - {fileID: 1883245922}
   - {fileID: 1787795472}
   - {fileID: 557443287}
@@ -370,11 +429,11 @@ MonoBehaviour:
   noteSpawnY: 0
   noteTapY: 0
   laneVisualizators:
-  - {fileID: 1332651226804386850}
   - {fileID: 1790210393}
   - {fileID: 1808213532}
   - {fileID: 752068180}
   - {fileID: 2038445204}
+  beatMachine: {fileID: 222045770}
 --- !u!4 &287329986
 Transform:
   m_ObjectHideFlags: 0
@@ -3441,14 +3500,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2168396519086800312, guid: 1e18ae58ecac51e4b98df024eaf26425, type: 3}
   m_PrefabInstance: {fileID: 1332651226804386848}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1332651226804386850 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2168396519086799943, guid: 1e18ae58ecac51e4b98df024eaf26425, type: 3}
-  m_PrefabInstance: {fileID: 1332651226804386848}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aecfb66207446541b21880dd2a3ccc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -149,7 +149,7 @@ namespace _Content.Scripts.zuma.scratch
                 nextTile.slime = slime;
                 slime.tile = nextTileIndex;
                 slime.Move(nextTile.position);
-                slime.SetSortingOrder(10000 - (int)(nextTile.position.y * 10.0f));
+                slime.SetSortingOrder(10000 - (int)(nextTile.position.y * 1000.0f));
             }
         }
 

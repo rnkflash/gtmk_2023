@@ -60,7 +60,7 @@ namespace _Content.Scripts.zuma.scratch
 
         public void UpdateSortingOrder()
         {
-            spriteRenderer.sortingOrder = 10000 - (int)(transform.position.y * 10.0f);
+            spriteRenderer.sortingOrder = 10000 - (int)(transform.position.y * 1000.0f);
         }
 
         public void SetSortingOrder(int order)
