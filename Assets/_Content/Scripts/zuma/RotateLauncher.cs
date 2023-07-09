@@ -1,5 +1,6 @@
 ﻿using _Content.Scripts.zuma.scratch;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace _Content.Scripts.zuma
 {
@@ -28,6 +29,8 @@ namespace _Content.Scripts.zuma
 		public ParticleSystem shootVfxGreen1;
 		public ParticleSystem shootVfxGreen2;
 		public ParticleSystem shootVfxGreen3;
+
+		public UnityEvent onShoot;
 
 		private void RotatePlayerAlongMousePosition ()
 		{
@@ -63,57 +66,33 @@ namespace _Content.Scripts.zuma
 			
 			if (note == "Q")
 			{
-				color = Color.blue;
-				if (shootVfxBlue1 != null)
-				{
-					shootVfxBlue1.Emit(1);
-					shootVfxBlue2.Emit(1);
-					shootVfxBlue3.Emit(1);
-				}
+				color = Color.red;
 			}
 			
 			if (note == "W")
 			{
-				color = Color.green;
-				if (shootVfxGreen1 != null)
-				{
-					shootVfxGreen1.Emit(1);
-					shootVfxGreen2.Emit(1);
-					shootVfxGreen3.Emit(1);
-				}
+				color = Color.blue;
 			}
 
 			if (note == "E")
 			{
-				color = Color.red;
-				if (shootVfxRed1 != null)
-				{
-					shootVfxRed1.Emit(1);
-					shootVfxRed2.Emit(1);
-					shootVfxRed3.Emit(1);
-				}
+				color = Color.yellow;
 			}
 
 			if (note == "R")
 			{
-				color = Color.yellow;
-				if (shootVfxYellow1 != null)
-				{
-					shootVfxYellow1.Emit(1);
-					shootVfxYellow2.Emit(1);
-					shootVfxYellow3.Emit(1);
-				}
+				color = Color.green;
 			}
-				
-			
-			
-			
 			laserGun.Fire(color);
+
+			FireWorks(note);
+			
+			onShoot?.Invoke();
 		}
 
 		public void FireBlankLaser(string note)
 		{
-			//TODO fire without laser
+			FireWorks(note);
 		}
 
 		public void NotePlayedQ()
@@ -146,6 +125,60 @@ namespace _Content.Scripts.zuma
 			Slime slime = curve.GetRandomSlime(Random.Range(0,4));
 			if (slime != null)
 				transform.LookAt (slime.transform.position, Vector3.back);
+		}
+
+		private void FireWorks(string note)
+		{
+			var color = Color.white;
+			
+			if (note == "Q")
+			{
+				color = Color.red;
+				if (shootVfxBlue1 != null)
+				{
+					shootVfxRed1.Emit(1);
+					shootVfxRed2.Emit(1);
+					shootVfxRed3.Emit(1);
+					
+					
+				}
+			}
+			
+			if (note == "W")
+			{
+				color = Color.blue;
+				if (shootVfxGreen1 != null)
+				{
+					shootVfxBlue1.Emit(1);
+					shootVfxBlue2.Emit(1);
+					shootVfxBlue3.Emit(1);
+					
+					
+				}
+			}
+
+			if (note == "E")
+			{
+				color = Color.yellow;
+				if (shootVfxRed1 != null)
+				{
+					
+					shootVfxYellow1.Emit(1);
+					shootVfxYellow2.Emit(1);
+					shootVfxYellow3.Emit(1);
+				}
+			}
+
+			if (note == "R")
+			{
+				color = Color.green;
+				if (shootVfxYellow1 != null)
+				{
+					shootVfxGreen1.Emit(1);
+					shootVfxGreen2.Emit(1);
+					shootVfxGreen3.Emit(1);
+				}
+			}
 		}
 		
 	}
