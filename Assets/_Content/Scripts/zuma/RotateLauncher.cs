@@ -13,7 +13,21 @@ namespace _Content.Scripts.zuma
 		public Laser laserGun;
 		public Curve curve;
 
-		public ParticleSystem shootVfx;
+		public ParticleSystem shootVfxBlue1;
+		public ParticleSystem shootVfxBlue2;
+		public ParticleSystem shootVfxBlue3;
+		
+		public ParticleSystem shootVfxRed1;
+		public ParticleSystem shootVfxRed2;
+		public ParticleSystem shootVfxRed3;
+		
+		public ParticleSystem shootVfxYellow1;
+		public ParticleSystem shootVfxYellow2;
+		public ParticleSystem shootVfxYellow3;
+		
+		public ParticleSystem shootVfxGreen1;
+		public ParticleSystem shootVfxGreen2;
+		public ParticleSystem shootVfxGreen3;
 
 		private void RotatePlayerAlongMousePosition ()
 		{
@@ -45,15 +59,42 @@ namespace _Content.Scripts.zuma
 
 		public void FireLaser(string note)
 		{
-			var color = Color.blue;
-			if (note == "W")
-				color = Color.green;
-			if (note == "E")
-				color = Color.red;
-			if (note == "R")
-				color = Color.yellow;
+			var color = Color.white;
 			
-			shootVfx.Emit(1);
+			if (note == "Q")
+			{
+				color = Color.blue;
+				shootVfxBlue1.Emit(1);
+				shootVfxBlue2.Emit(1);
+				shootVfxBlue3.Emit(1);
+			}
+			
+			if (note == "W")
+			{
+				color = Color.green;
+				shootVfxGreen1.Emit(1);
+				shootVfxGreen2.Emit(1);
+				shootVfxGreen3.Emit(1);
+			}
+
+			if (note == "E")
+			{
+				color = Color.red;
+				shootVfxRed1.Emit(1);
+				shootVfxRed2.Emit(1);
+				shootVfxRed3.Emit(1);
+			}
+
+			if (note == "R")
+			{
+				color = Color.yellow;
+				shootVfxYellow1.Emit(1);
+				shootVfxYellow2.Emit(1);
+				shootVfxYellow3.Emit(1);
+			}
+				
+			
+			
 			
 			laserGun.Fire(color);
 		}
