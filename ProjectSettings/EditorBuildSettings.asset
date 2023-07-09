@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Content/Scenes/zuma_Art3.unity
     guid: 029760a6451d25d4fa1a902977db6936
+  - enabled: 1
+    path: Assets/_Content/Scenes/zuma_Ne_Uspeli_Final.unity
+    guid: ce933049c262ff94d90a90433178c32f
   m_configObjects: {}

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e3d6b1cb37ef942a6f257c803ac2cf, type: 3}
+  m_Name: Final_GMTKek_03
+  m_EditorClassIdentifier: 
+  midi: Final_GMTKek_03.mid
+  clip: {fileID: 8300000, guid: 87b5304013bbfa24a999adbaa87c3737, type: 3}
+  loseInSeconds: 133
+  sceneName: zuma_Ne_Uspeli_Final

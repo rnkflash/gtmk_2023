@@ -25,5 +25,11 @@ namespace _Content.Scripts
 				await Task.Delay(60);
 			}
 		}
+
+		public void Restart()
+		{
+			var currentLevel = SceneManager.GetActiveScene().name;
+			Load(currentLevel);
+		}
 	}
 }

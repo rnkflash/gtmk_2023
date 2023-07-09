@@ -9,75 +9,13 @@ namespace _Content.Scripts.scenes
 {
     public class MenuController : MonoBehaviour
     {
-
-        public static string chosenTrackId;
-        public static string chosenMidiFile;
-        public static bool menuOverride = false;
-
-        private Button startButton;
-
-        public TMP_Dropdown dropdownTracks;
-        public TMP_InputField inputFieldMidi;
-        public TMP_Text warningText;
-        private void OnEnable()
+        public GameLoop gameLoop;
+        
+        public void OnStartClicked()
         {
-            VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-
-            startButton = root.Q<Button>("ButtonStart");
-            startButton.clicked += OnStartClicked;
-
-            dropdownTracks.options.Clear();
-            foreach (var track in AllTracks.Instance.tracks)
-            {
-                dropdownTracks.options.Add (new TMP_Dropdown.OptionData() {text=track.id});
-            }
-            
-            dropdownTracks.onValueChanged.AddListener(delegate {
-                inputFieldMidi.text = dropdownTracks.options[dropdownTracks.value].text + ".mid";
-            });
-            
-            inputFieldMidi.onValueChanged.AddListener(delegate {
-                try
-                {
-                    var midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + inputFieldMidi.text);
-                    warningText.gameObject.SetActive(false);
-                }
-                catch (Exception e)
-                {
-                    warningText.gameObject.SetActive(true);
-                    return;
-                }
-            });
-
-            inputFieldMidi.text = dropdownTracks.options[dropdownTracks.value].text + ".mid";
-            
-            warningText.gameObject.SetActive(false);
-            
-        }
-
-        private void OnDisable()
-        {
-            startButton.clicked -= OnStartClicked;
-        }
-
-        private void OnStartClicked()
-        {
-            try
-            {
-                var midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + inputFieldMidi.text);
-            }
-            catch (Exception e)
-            {
-                warningText.gameObject.SetActive(true);
-                return;
-            }
-            
-            
-            chosenTrackId = dropdownTracks.options[dropdownTracks.value].text;
-            chosenMidiFile = inputFieldMidi.text;
-            menuOverride = true;
-            
-            SceneController.Instance.Load("zuma_Art3");
+            Player.Instance.levels = gameLoop.Levels;
+            Player.Instance.currentLevel = 0;
+            SceneController.Instance.Load(Player.Instance.getCurrentLevel().sceneName);
         }
     }
 }

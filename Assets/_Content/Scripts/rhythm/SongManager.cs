@@ -42,10 +42,12 @@ namespace _Content.Scripts.rhythm
         {
             Instance = this;
 
-            if (MenuController.menuOverride)
+            var level = Player.Instance.getCurrentLevel();
+            if (level != null)
             {
-                fileLocation = MenuController.chosenMidiFile;
-                audioSource.clip = AllTracks.Instance.GetTrack(MenuController.chosenTrackId).clip;
+                fileLocation = level.midi;
+                audioSource.clip = level.clip;
+                loseTimer = level.loseInSeconds;
             }
 
             ReadFromFile();
