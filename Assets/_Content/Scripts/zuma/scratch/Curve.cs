@@ -203,7 +203,9 @@ namespace _Content.Scripts.zuma.scratch
             slimes.Remove(slime);
             slime.curve = null;
             slime.isAlive = false;
-            Destroy(slime.gameObject);
+            slime.GetComponentInChildren<Collider2D>().enabled = false;
+            slime.DieWithAnimation();
+            //Destroy(slime.gameObject);
         }
         
     }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using DG.Tweening;
+using Spine.Unity;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -69,6 +71,20 @@ namespace _Content.Scripts.zuma.scratch
         public void HitByLaser()
         {
             curve?.ChainKillSlimes(this);
+        }
+
+
+        public void DieWithAnimation()
+        {
+            StartCoroutine(PlayDeathAnimation());
+        }
+        
+        private IEnumerator PlayDeathAnimation()
+        {
+            var skeleton = spines[type].GetComponent<SkeletonAnimation>();
+            skeleton.AnimationState.SetAnimation(0, "death", false).MixDuration = 0;
+            yield return new WaitForSeconds(1.0f);
+            Destroy(this.gameObject);
         }
     }
 }
