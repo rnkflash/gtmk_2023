@@ -1,9 +1,0 @@
-platform.png
-size:720,464
-filter:Linear,Linear
-scale:0.5
-panel
-bounds:462,3,459,256
-rotate:90
-platform
-bounds:2,2,458,460

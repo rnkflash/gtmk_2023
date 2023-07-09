@@ -1,0 +1,10 @@
+right.png
+size:284,156
+filter:Linear,Linear
+scale:0.5
+record_vfx
+bounds:179,17,136,103
+rotate:90
+right
+bounds:2,2,175,151
+offsets:1,1,177,153
