@@ -32049,7 +32049,19 @@ MonoBehaviour:
       m_Calls: []
   hitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 275977065}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
+        m_MethodName: FireBlankLaser
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Q
+          m_BoolArgument: 0
+        m_CallState: 2
   missEvent:
     m_PersistentCalls:
       m_Calls:
@@ -32065,6 +32077,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  vfxGood: {fileID: 0}
+  vfxBad: {fileID: 0}
 --- !u!1 &976081675
 GameObject:
   m_ObjectHideFlags: 0
@@ -37628,7 +37642,19 @@ MonoBehaviour:
       m_Calls: []
   hitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 275977065}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
+        m_MethodName: FireBlankLaser
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: R
+          m_BoolArgument: 0
+        m_CallState: 2
   missEvent:
     m_PersistentCalls:
       m_Calls:
@@ -37644,6 +37670,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  vfxGood: {fileID: 0}
+  vfxBad: {fileID: 0}
 --- !u!4 &1273793356
 Transform:
   m_ObjectHideFlags: 0
@@ -44274,7 +44302,19 @@ MonoBehaviour:
       m_Calls: []
   hitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 275977065}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
+        m_MethodName: FireBlankLaser
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: E
+          m_BoolArgument: 0
+        m_CallState: 2
   missEvent:
     m_PersistentCalls:
       m_Calls:
@@ -44290,6 +44330,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  vfxGood: {fileID: 0}
+  vfxBad: {fileID: 0}
 --- !u!1 &1690795959
 GameObject:
   m_ObjectHideFlags: 0
@@ -44861,7 +44903,19 @@ MonoBehaviour:
       m_Calls: []
   hitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 275977065}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
+        m_MethodName: FireBlankLaser
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: W
+          m_BoolArgument: 0
+        m_CallState: 2
   missEvent:
     m_PersistentCalls:
       m_Calls:
@@ -44877,6 +44931,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  vfxGood: {fileID: 0}
+  vfxBad: {fileID: 0}
 --- !u!1 &2022760015
 GameObject:
   m_ObjectHideFlags: 0

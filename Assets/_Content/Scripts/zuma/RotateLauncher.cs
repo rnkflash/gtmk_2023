@@ -111,6 +111,11 @@ namespace _Content.Scripts.zuma
 			laserGun.Fire(color);
 		}
 
+		public void FireBlankLaser(string note)
+		{
+			//TODO fire without laser
+		}
+
 		public void NotePlayedQ()
 		{
 			FireLaser("Q");
