@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using _Content.Scripts.zuma.scratch.bezier;
 using UnityEngine;
 using Random = System.Random;
@@ -207,6 +208,13 @@ namespace _Content.Scripts.zuma.scratch
             slime.DieWithAnimation();
             //Destroy(slime.gameObject);
         }
-        
+
+        public Slime GetRandomSlime(int type)
+        {
+            var selected = slimes.FindAll(s => s.type == type && s.isAlive);
+            if (selected.Count == 0)
+                return null;
+            return selected[UnityEngine.Random.Range(0,selected.Count)];
+        }
     }
 }
