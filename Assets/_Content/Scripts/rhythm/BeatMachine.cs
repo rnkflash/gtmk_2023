@@ -28,7 +28,6 @@ public class BeatMachine : MonoBehaviour
             return;
 
         timePassed += Time.deltaTime;
-        Debug.Log("timePassed " + timePassed + " nextBeat " + nextBeat);
 
         if (timePassed >= nextBeat)
         {
