@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Content.Scripts.zuma.scratch;
 using Melanchall.DryWetMidi.Interaction;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace _Content.Scripts.rhythm
 {
@@ -22,7 +23,7 @@ namespace _Content.Scripts.rhythm
         private bool startLane = false;
         private bool pumpingEvents = false;
 
-        public Curve curve; 
+        public UnityEvent fireEvent;
 
         public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
         {
@@ -75,7 +76,7 @@ namespace _Content.Scripts.rhythm
             if (timer >= nextEvent)
             {
                 nextEvent = GetEvent(nextEvent);
-                curve.MoveSlimes();
+                fireEvent?.Invoke();
             }
             
 

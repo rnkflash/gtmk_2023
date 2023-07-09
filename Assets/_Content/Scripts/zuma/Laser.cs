@@ -11,7 +11,7 @@ namespace _Content.Scripts.zuma
 
         private void Awake()
         {
-            lineRenderer.enabled = true;
+            Deactivate();
         }
 
         private void Activate()
@@ -26,11 +26,6 @@ namespace _Content.Scripts.zuma
             lineRenderer.SetPosition(1, originPoint.position);
         }
 
-        private void Update()
-        {
-            
-        }
-
         private void FixedUpdate()
         {
             if (!lineRenderer.enabled) return;
@@ -40,6 +35,22 @@ namespace _Content.Scripts.zuma
             Vector3 hitPosition = cast ? hit.point : originPoint.position + originPoint.forward * maxDistance;
             lineRenderer.SetPosition(0, originPoint.position);
             lineRenderer.SetPosition(1, hitPosition);
+            
+            laserTimer -= Time.deltaTime;
+            if (laserTimer <= 0)
+            {
+                laserTimer = 0;
+                Deactivate();
+            }
+            
+        }
+
+        private float laserTimer = 0.0f;
+
+        public void Fire(Color color)
+        {
+            Activate();
+            laserTimer = 0.1f;
         }
     }
 }
