@@ -1,0 +1,9 @@
+platform.png
+size:1432,924
+filter:Linear,Linear
+panel
+bounds:918,3,917,511
+rotate:90
+platform
+bounds:2,2,914,918
+offsets:1,1,916,920

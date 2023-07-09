@@ -5,6 +5,8 @@ Shader "GMTK/GrassSprites"
         _MainTex ("Sprite Texture", 2D) = "white" {}
         _Noise ("Noise Texture", 2D) = "white" {}
         _Mask ("Mask", 2D) = "white" {}
+        _Distortion ("Distortion", float) = 1
+        _Speed ("Speed", float) = 1
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
         [HideInInspector] _Color ("Tint", Color) = (1,1,1,1)
@@ -142,9 +144,14 @@ Shader "GMTK/GrassSprites"
 
             TEXTURE2D(_MainTex);
             TEXTURE2D(_Noise);
+            TEXTURE2D(_Mask);
             SAMPLER(sampler_MainTex);
+            SAMPLER(sampler_Mask);
+            SAMPLER(sampler_Noise);
             float4 _MainTex_ST;
             float4 _Color;
+            float _Distortion;
+            float _Speed;
             half4 _RendererColor;
 
             Varyings UnlitVertex(Attributes attributes)
@@ -165,8 +172,11 @@ Shader "GMTK/GrassSprites"
             float4 UnlitFragment(Varyings i) : SV_Target
             {
                 
-                float3 noise = SAMPLE_TEXTURE2D(_Noise, sampler_MainTex, i.uv);
-                float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
+                float noise = SAMPLE_TEXTURE2D(_Noise, sampler_Noise, i.uv + float2(_Time.y * _Speed,0));
+                float mask = SAMPLE_TEXTURE2D(_Mask, sampler_Mask, i.uv);
+                mask = saturate(mask * noise);
+                float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv + (mask * _Distortion));
+                //mainTex.xyz = mainTex.xyz * mask;
                 
                 #if defined(DEBUG_DISPLAY)
                 SurfaceData2D surfaceData;
