@@ -1,5 +1,7 @@
 using System.Collections;
 using System.IO;
+using _Content.Scripts.scenes;
+using _Content.Scripts.so;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using UnityEngine;
@@ -36,6 +38,13 @@ namespace _Content.Scripts.rhythm
         void Start()
         {
             Instance = this;
+
+            if (MenuController.menuOverride)
+            {
+                fileLocation = MenuController.chosenMidiFile;
+                audioSource.clip = AllTracks.Instance.GetTrack(MenuController.chosenTrackId).clip;
+            }
+
             ReadFromFile();
         }
 

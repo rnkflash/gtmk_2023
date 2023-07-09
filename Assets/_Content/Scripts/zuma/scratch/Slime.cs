@@ -10,6 +10,7 @@ namespace _Content.Scripts.zuma.scratch
         [HideInInspector] public int tile;
         [HideInInspector] public bool moved = false;
         [HideInInspector] public int type = 0;
+        [HideInInspector] public Curve curve;
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private float jumpPowerMin = 0.1f;
         [SerializeField] private float jumpPowerMax = 0.2f;
@@ -56,6 +57,11 @@ namespace _Content.Scripts.zuma.scratch
         public void SetSortingOrder(int order)
         {
             spriteRenderer.sortingOrder = order;
+        }
+
+        public void Die()
+        {
+            curve?.DestroySlime(this);
         }
     }
 }
