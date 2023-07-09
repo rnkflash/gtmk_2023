@@ -77,7 +77,7 @@ namespace _Content.Scripts.scenes
             chosenMidiFile = inputFieldMidi.text;
             menuOverride = true;
             
-            SceneController.Instance.Load("zuma_from_scratch_2");
+            SceneController.Instance.Load("zuma_Art3");
         }
     }
 }

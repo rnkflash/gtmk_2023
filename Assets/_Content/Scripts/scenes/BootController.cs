@@ -9,7 +9,7 @@ namespace _Content.Scripts.scenes
 		{
 			Application.targetFrameRate = 60;
 			DOTween.Init();
-			SceneController.Instance.Load("intro");
+			SceneController.Instance.Load("menu");
 		}
 	}
 }
