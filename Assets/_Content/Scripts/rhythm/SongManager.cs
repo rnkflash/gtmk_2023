@@ -1,12 +1,10 @@
 using System.Collections;
-using System.IO;
 using _Content.Scripts.scenes;
 using _Content.Scripts.so;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Networking;
 
 namespace _Content.Scripts.rhythm
 {
@@ -20,6 +18,7 @@ namespace _Content.Scripts.rhythm
 
         public int inputDelayInMilliseconds;
 
+        public float loseTimer = 60 * 3.0f;
 
         public string fileLocation;
         public float noteTime;
@@ -29,6 +28,8 @@ namespace _Content.Scripts.rhythm
         public LaneVisualizator[] laneVisualizators;
 
         public BeatMachine beatMachine;
+
+        public UnityEvent loseEvent;
 
         public float noteDespawnY
         {
@@ -71,9 +72,30 @@ namespace _Content.Scripts.rhythm
         public void StartSong()
         {
             audioSource.Play();
+            
             foreach (var lane in lanes) lane.StartLane();
             foreach (var lane in laneVisualizators) lane.StartSong();
             beatMachine.StartMF();
+
+            loseCoroutine = LoseAfter(loseTimer); 
+            StartCoroutine(loseCoroutine);
+        }
+
+        private IEnumerator loseCoroutine = null;
+
+        public void StopLoseTimer()
+        {
+            if (loseCoroutine != null)
+            {
+                StopCoroutine(loseCoroutine);
+                loseCoroutine = null;
+            }
+        }
+
+        IEnumerator LoseAfter(float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+            loseEvent?.Invoke();
         }
 
         public static double GetAudioSourceTime()

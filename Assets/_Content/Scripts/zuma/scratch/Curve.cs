@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _Content.Scripts.zuma.scratch.bezier;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = System.Random;
 
 namespace _Content.Scripts.zuma.scratch
@@ -13,6 +14,8 @@ namespace _Content.Scripts.zuma.scratch
         private CurvePoint[] points;
 
         public GameObject prefab;
+
+        public UnityEvent winEvent; 
 
         private void Start()
         {
@@ -119,7 +122,16 @@ namespace _Content.Scripts.zuma.scratch
                 if (!slime.moved)
                     slime.Jump();
             }
+            
+            //check if there is chain of slimes from start to end
+            if (slimes.Count == points.Length && winOnce)
+            {
+                winEvent?.Invoke();
+            }
+            
         }
+
+        private bool winOnce = true;
 
         private bool IsFirstCorps(Slime slime)
         {
