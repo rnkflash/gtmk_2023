@@ -19,6 +19,9 @@ public class LaneVisualizator : MonoBehaviour
 
     public void ImportLane()
     {
+        if (lane.timeStamps.Count <= 0)
+            return;
+        
         foreach (var timeStamp in lane.timeStamps)
         {
             var note = Instantiate(notePrefab, transform);
