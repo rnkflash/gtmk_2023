@@ -24,6 +24,8 @@ namespace _Content.Scripts.rhythm
         public float noteSpawnY;
         public float noteTapY;
 
+        public LaneVisualizator[] laneVisualizators;
+
         public float noteDespawnY
         {
             get { return noteTapY - (noteSpawnY - noteTapY); }
@@ -50,6 +52,7 @@ namespace _Content.Scripts.rhythm
             notes.CopyTo(array, 0);
 
             foreach (var lane in lanes) lane.SetTimeStamps(array);
+            foreach (var lane in laneVisualizators) lane.ImportLane();
 
             Invoke(nameof(StartSong), songDelayInSeconds);
         }
@@ -58,6 +61,7 @@ namespace _Content.Scripts.rhythm
         {
             audioSource.Play();
             foreach (var lane in lanes) lane.StartLane();
+            foreach (var lane in laneVisualizators) lane.StartSong();
         }
 
         public static double GetAudioSourceTime()
