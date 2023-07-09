@@ -652,6 +652,7 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 64
+  laserGun: {fileID: 1296665295}
 --- !u!1 &334702466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1081,19 @@ MonoBehaviour:
   timeStamps: []
   fireEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 324733734}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
+        m_MethodName: NotePlayedE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &655034988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,7 +2582,19 @@ MonoBehaviour:
   timeStamps: []
   fireEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 324733734}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
+        m_MethodName: NotePlayedW
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1790210391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2737,7 +2762,19 @@ MonoBehaviour:
   timeStamps: []
   fireEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 324733734}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
+        m_MethodName: NotePlayedR
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1808213530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2905,7 +2942,19 @@ MonoBehaviour:
   timeStamps: []
   fireEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 324733734}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
+        m_MethodName: NotePlayedQ
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2006105978
 GameObject:
   m_ObjectHideFlags: 0

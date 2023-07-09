@@ -11,6 +11,8 @@ namespace _Content.Scripts.zuma
 		[SerializeField] private Transform originPoint;
 		[SerializeField] private LayerMask hitLayer;
 
+		public Laser laserGun; 
+
 		private void Start()
 		{
 			CreateBall();
@@ -74,6 +76,39 @@ namespace _Content.Scripts.zuma
 			//instanceBall = Instantiate(moveBalls.GetRandomBall(), transform.position, Quaternion.identity);
 			//instanceBall.SetActive(true);
 			//instanceBall.GetComponent<BallCollider>().MakeShooterBall(true);
+		}
+
+		public void FireLaser(string note)
+		{
+			var color = Color.blue;
+			if (note == "W")
+				color = Color.green;
+			if (note == "E")
+				color = Color.red;
+			if (note == "R")
+				color = Color.yellow;
+			
+			laserGun.Fire(color);
+		}
+
+		public void NotePlayedQ()
+		{
+			FireLaser("Q");
+		}
+		
+		public void NotePlayedW()
+		{
+			FireLaser("W");
+		}
+		
+		public void NotePlayedE()
+		{
+			FireLaser("E");
+		}
+		
+		public void NotePlayedR()
+		{
+			FireLaser("R");
 		}
 	}
 }
