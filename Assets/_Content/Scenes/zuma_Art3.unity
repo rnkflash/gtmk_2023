@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5255,6 +5255,78 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &67217848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67217850}
+  - component: {fileID: 67217849}
+  m_Layer: 0
+  m_Name: BeatMachine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &67217849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67217848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212b289a9c50d1542ab1e6a70c98cc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireThis:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1392007677}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.scratch.Curve, Assembly-CSharp
+        m_MethodName: MoveSlimes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 275977065}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
+        m_MethodName: Aim
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  bpm: 180
+--- !u!4 &67217850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67217848}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.96235555, y: -0.26389855, z: 0.0650988}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &70808197
 GameObject:
   m_ObjectHideFlags: 0
@@ -20667,6 +20739,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   laserGun: {fileID: 1486479093}
+  curve: {fileID: 1392007677}
 --- !u!4 &275977066
 Transform:
   m_ObjectHideFlags: 0
@@ -32682,7 +32755,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 976081677}
   lanes:
-  - {fileID: 409329992}
   - {fileID: 939297322}
   - {fileID: 1976377512}
   - {fileID: 1672821852}
@@ -32695,12 +32767,11 @@ MonoBehaviour:
   noteSpawnY: 0
   noteTapY: 0
   laneVisualizators:
-  - {fileID: 2146751181}
   - {fileID: 22664126}
   - {fileID: 114134802}
   - {fileID: 276516411}
   - {fileID: 1673769504}
-  beatMachine: {fileID: 0}
+  beatMachine: {fileID: 67217849}
 --- !u!114 &976081679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46305,14 +46376,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2168396519086800312, guid: 1e18ae58ecac51e4b98df024eaf26425, type: 3}
   m_PrefabInstance: {fileID: 2146751179}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2146751181 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2168396519086799943, guid: 1e18ae58ecac51e4b98df024eaf26425, type: 3}
-  m_PrefabInstance: {fileID: 2146751179}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aecfb66207446541b21880dd2a3ccc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
