@@ -42059,7 +42059,7 @@ MonoBehaviour:
   - {fileID: 1672821852}
   - {fileID: 1273793355}
   songDelayInSeconds: 3
-  marginOfError: 0.25
+  marginOfError: 0.15
   inputDelayInMilliseconds: 0
   loseTimer: 120
   fileLocation: Final_GMTKek_02.mid
