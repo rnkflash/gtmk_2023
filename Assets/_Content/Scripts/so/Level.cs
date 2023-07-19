@@ -9,5 +9,7 @@ namespace _Content.Scripts.so
         public AudioClip clip;
         public float loseInSeconds;
         public string sceneName;
+        public string author;
+        public string song;
     }
 }

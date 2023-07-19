@@ -16,3 +16,5 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: a37ba071dc0dca549ab04b5650e1ad25, type: 3}
   loseInSeconds: 330
   sceneName: zuma_Ne_Uspeli_Final_Art2
+  author: Vronas
+  song: Final
