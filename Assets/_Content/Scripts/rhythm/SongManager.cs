@@ -1,10 +1,12 @@
 using System.Collections;
+using System.IO;
 using _Content.Scripts.scenes;
 using _Content.Scripts.so;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Networking;
 
 namespace _Content.Scripts.rhythm
 {
@@ -50,7 +52,36 @@ namespace _Content.Scripts.rhythm
                 loseTimer = level.loseInSeconds;
             }
 
-            ReadFromFile();
+            if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
+            {
+                StartCoroutine(ReadFromWebsite());
+            }
+            else
+            {
+                ReadFromFile();
+            }
+        }
+        
+        private IEnumerator ReadFromWebsite()
+        {
+            using (UnityWebRequest www = UnityWebRequest.Get(Application.streamingAssetsPath + "/" + fileLocation))
+            {
+                yield return www.SendWebRequest();
+
+                if (www.isNetworkError || www.isHttpError)
+                {
+                    Debug.LogError(www.error);
+                }
+                else
+                {
+                    byte[] results = www.downloadHandler.data;
+                    using (var stream = new MemoryStream(results))
+                    {
+                        midiFile = MidiFile.Read(stream);
+                        GetDataFromMidi();
+                    }
+                }
+            }
         }
 
         private void ReadFromFile()

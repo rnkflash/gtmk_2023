@@ -48,8 +48,7 @@ namespace _Content.Scripts.zuma
 
 		private void ShootBall()
 		{
-			var hitPoint = RayCastBalls();
-			Debug.Log(hitPoint);
+			RayCastBalls();
 		}
 
 		private Vector2 RayCastBalls()
@@ -85,7 +84,7 @@ namespace _Content.Scripts.zuma
 			}
 			laserGun.Fire(color);
 
-			FireWorks(note);
+			//FireWorks(note);
 			
 			onShoot?.Invoke();
 		}
@@ -134,35 +133,30 @@ namespace _Content.Scripts.zuma
 			if (note == "Q")
 			{
 				color = Color.red;
-				if (shootVfxBlue1 != null)
+				if (shootVfxRed1 != null)
 				{
 					shootVfxRed1.Emit(1);
 					shootVfxRed2.Emit(1);
 					shootVfxRed3.Emit(1);
-					
-					
 				}
 			}
 			
 			if (note == "W")
 			{
 				color = Color.blue;
-				if (shootVfxGreen1 != null)
+				if (shootVfxBlue1 != null)
 				{
 					shootVfxBlue1.Emit(1);
 					shootVfxBlue2.Emit(1);
 					shootVfxBlue3.Emit(1);
-					
-					
 				}
 			}
 
 			if (note == "E")
 			{
 				color = Color.yellow;
-				if (shootVfxRed1 != null)
+				if (shootVfxYellow1 != null)
 				{
-					
 					shootVfxYellow1.Emit(1);
 					shootVfxYellow2.Emit(1);
 					shootVfxYellow3.Emit(1);
@@ -172,7 +166,7 @@ namespace _Content.Scripts.zuma
 			if (note == "R")
 			{
 				color = Color.green;
-				if (shootVfxYellow1 != null)
+				if (shootVfxGreen1 != null)
 				{
 					shootVfxGreen1.Emit(1);
 					shootVfxGreen2.Emit(1);

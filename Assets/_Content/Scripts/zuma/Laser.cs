@@ -34,7 +34,7 @@ namespace _Content.Scripts.zuma
             
             var hit = Raycast();
             lineRenderer.SetPosition(0, originPoint.position);
-            lineRenderer.SetPosition(1, new Vector3(hit.x, hit.y, 0));
+            lineRenderer.SetPosition(1, new Vector3(hit.x, hit.y, originPoint.position.z));
 
             laserTimer -= Time.deltaTime;
             if (laserTimer <= 0)
@@ -83,7 +83,13 @@ namespace _Content.Scripts.zuma
             {
                 slime.HitByLaser();
             }
+
+            var intensity = 7f;
+
+            if (color == Color.blue || color == Color.red)
+                intensity *= 4f;
             
+            lineRenderer.material.SetColor ("_EmissionColor", color * intensity);
             Activate();
             laserTimer = 0.1f;
         }
