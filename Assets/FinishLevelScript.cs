@@ -6,7 +6,8 @@ using UnityEngine.Events;
 
 public class FinishLevelScript : MonoBehaviour
 {
-    public UnityEvent onstartfinisininginginpup;
+    public UnityEvent onWin;
+    public UnityEvent onLose;
     
     public void Win()
     {
@@ -20,15 +21,15 @@ public class FinishLevelScript : MonoBehaviour
 
     private IEnumerator losing()
     {
-        onstartfinisininginginpup?.Invoke();
-        yield return new WaitForSeconds(1.0f);
+        onLose?.Invoke();
+        yield return new WaitForSeconds(3.0f);
         SceneController.Instance.Restart();
     }
 
     private IEnumerator winning()
     {
-        onstartfinisininginginpup?.Invoke();
-        yield return new WaitForSeconds(1.0f);
+        onWin?.Invoke();
+        yield return new WaitForSeconds(3.0f);
 
         Player.Instance.currentLevel++;
 

@@ -10631,10 +10631,20 @@ MonoBehaviour:
   frogSkeletonAnimation: {fileID: 1900312460}
   idleAnimation: {fileID: 11400000, guid: baa19bbb515355c4d846744e2cc3d07b, type: 2}
   attackAnimation: {fileID: 11400000, guid: 998f55dfa4f89b94d8d7962fa07bc032, type: 2}
+  dieAndDisappearAnimation: {fileID: 11400000, guid: 307ddc6becd9c6647b856a3ae1865393, type: 2}
+  winLeapAnimation: {fileID: 11400000, guid: 991facefba51618438173042e4d6ce5e, type: 2}
+  starSkeletonAnimation: {fileID: 1159516750}
+  starDieAnimation: {fileID: 11400000, guid: 52ad90cb7c2572e4a924d29e58027f5d, type: 2}
+  stopTheseSkeletonAnimations:
+  - {fileID: 300161106}
+  - {fileID: 3905526}
+  - {fileID: 410964127}
   originPoint: {fileID: 1486479095}
   hitLayer:
     serializedVersion: 2
     m_Bits: 256
+  hitSound: {fileID: 1099134968}
+  missSound: {fileID: 390539182}
   laserGun: {fileID: 1486479093}
   curve: {fileID: 1392007677}
   shootVfxBlue1: {fileID: 1792961260}
@@ -10723,7 +10733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   analyzer: {fileID: 976081679}
-  intensity: 15
+  intensity: 4
   colorShaderName: _Color
 --- !u!23 &289990890
 MeshRenderer:
@@ -11007,7 +11017,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 340704661}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11017,7 +11027,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 235.33063, y: 132.31635}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &340704663
@@ -11079,7 +11089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   analyzer: {fileID: 976081679}
-  intensity: 15
+  intensity: 4
   colorShaderName: _Color
 --- !u!212 &343976561
 SpriteRenderer:
@@ -16821,7 +16831,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1750618676}
         m_TargetAssemblyTypeName: FinishLevelScript, Assembly-CSharp
-        m_MethodName: Win
+        m_MethodName: Lose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -42155,36 +42165,12 @@ MonoBehaviour:
           m_StringArgument: Q
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1099134968}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   missEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 275977065}
         m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
         m_MethodName: NotePlayedQ
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 390539182}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -52844,7 +52830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   analyzer: {fileID: 976081679}
-  intensity: 20
+  intensity: 5
   colorShaderName: _Color
 --- !u!212 &1262443189
 SpriteRenderer:
@@ -52948,36 +52934,12 @@ MonoBehaviour:
           m_StringArgument: R
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1099134968}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   missEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 275977065}
         m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
         m_MethodName: NotePlayedR
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 390539182}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59370,36 +59332,12 @@ MonoBehaviour:
           m_StringArgument: E
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1099134968}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   missEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 275977065}
         m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
         m_MethodName: NotePlayedE
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 390539182}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59524,12 +59462,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1c79cc238e20349b69bd36b247d056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onstartfinisininginginpup:
+  onWin:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 340704663}
         m_TargetAssemblyTypeName: FadeScript, Assembly-CSharp
         m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 275977065}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
+        m_MethodName: PlayeWinAnimationSeries
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onLose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 340704663}
+        m_TargetAssemblyTypeName: FadeScript, Assembly-CSharp
+        m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 275977065}
+        m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
+        m_MethodName: PlayLoseAnimationSeries
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -94156,36 +94133,12 @@ MonoBehaviour:
           m_StringArgument: W
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1099134968}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   missEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 275977065}
         m_TargetAssemblyTypeName: _Content.Scripts.zuma.RotateLauncher, Assembly-CSharp
         m_MethodName: NotePlayedW
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 390539182}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

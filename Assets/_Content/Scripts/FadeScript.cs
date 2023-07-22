@@ -8,7 +8,7 @@ public class FadeScript : MonoBehaviour
 
     public void FadeIn()
     {
-        bg.DOFade(1.0f, 1.0f).OnComplete(() =>
+        bg.DOFade(1.0f, 3.0f).OnComplete(() =>
         {
             
         });

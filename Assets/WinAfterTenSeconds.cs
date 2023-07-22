@@ -12,7 +12,7 @@ public class WinAfterTenSeconds : MonoBehaviour
 
     private IEnumerator winning()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(10.0f);
         onWin?.Invoke();
     }
 }

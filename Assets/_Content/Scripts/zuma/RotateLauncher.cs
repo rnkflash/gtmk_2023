@@ -14,9 +14,19 @@ namespace _Content.Scripts.zuma
 		[SerializeField] private SkeletonAnimation frogSkeletonAnimation;
 		[SerializeField] private AnimationReferenceAsset idleAnimation;
 		[SerializeField] private AnimationReferenceAsset attackAnimation;
+		[SerializeField] private AnimationReferenceAsset dieAndDisappearAnimation;
+		[SerializeField] private AnimationReferenceAsset winLeapAnimation;
+		
+		[SerializeField] private SkeletonAnimation starSkeletonAnimation;
+		[SerializeField] private AnimationReferenceAsset starDieAnimation;
+		
+		[SerializeField] private SkeletonAnimation[] stopTheseSkeletonAnimations;
 
 		[SerializeField] private Transform originPoint;
 		[SerializeField] private LayerMask hitLayer;
+
+		[SerializeField] private AudioSource hitSound;
+		[SerializeField] private AudioSource missSound;
 
 		public Laser laserGun;
 		public Curve curve;
@@ -39,9 +49,12 @@ namespace _Content.Scripts.zuma
 
 		public UnityEvent onShoot;
 
+		private bool isActive;
+
 		private void Start()
 		{
 			frogSkeletonAnimation.AnimationState.SetAnimation(0, idleAnimation, true);
+			isActive = true;
 		}
 
 		private void RotatePlayerAlongMousePosition ()
@@ -71,8 +84,11 @@ namespace _Content.Scripts.zuma
 			return hit2D.collider ? hit2D.point : start + end * 100.0f;
 		}
 
-		public void FireLaser(string note)
+		private void FireLaser(string note)
 		{
+			if (!isActive)
+				return;
+			
 			var color = Color.white;
 			
 			if (note == "Q")
@@ -96,17 +112,45 @@ namespace _Content.Scripts.zuma
 			}
 			laserGun.Fire(color);
 			
-			//TODO: play attack animation on frog
 			frogSkeletonAnimation.AnimationState.SetAnimation(0, attackAnimation, false);
 			frogSkeletonAnimation.AnimationState.AddAnimation(0, idleAnimation, true, 0);
 
 			//FireWorks(note);
 			
+			missSound.Play();
+			
 			onShoot?.Invoke();
+		}
+
+		public void PlayeWinAnimationSeries()
+		{
+			isActive = false;
+			frogSkeletonAnimation.AnimationState.SetAnimation(0, winLeapAnimation, false);
+			frogSkeletonAnimation.AnimationState.AddAnimation(0, dieAndDisappearAnimation, false, 0);
+
+			foreach (var animationSkeleton in stopTheseSkeletonAnimations)
+			{
+				animationSkeleton.state.GetCurrent(0).TimeScale = 0;
+			}
+
+			starSkeletonAnimation.AnimationState.SetAnimation(0, starDieAnimation, false);
+
+		}
+
+		public void PlayLoseAnimationSeries()
+		{
+			isActive = false;
+			frogSkeletonAnimation.AnimationState.SetAnimation(0, winLeapAnimation, true);
+			
+			foreach (var animationSkeleton in stopTheseSkeletonAnimations)
+			{
+				animationSkeleton.state.GetCurrent(0).TimeScale = 0;
+			}
 		}
 
 		public void FireBlankLaser(string note)
 		{
+			hitSound.Play();
 			FireWorks(note);
 		}
 
@@ -132,10 +176,8 @@ namespace _Content.Scripts.zuma
 
 		public void Aim()
 		{
-			if (curve == null)
+			if (curve == null || !isActive)
 				return;
-			
-			
 
 			Slime slime = curve.GetRandomSlime(Random.Range(0,4));
 			if (slime != null)
