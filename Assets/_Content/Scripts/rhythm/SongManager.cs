@@ -33,6 +33,8 @@ namespace _Content.Scripts.rhythm
 
         public UnityEvent loseEvent;
 
+        public SongTimer songTimer;
+
         public float noteDespawnY
         {
             get { return noteTapY - (noteSpawnY - noteTapY); }
@@ -51,6 +53,8 @@ namespace _Content.Scripts.rhythm
                 audioSource.clip = level.clip;
                 loseTimer = level.loseInSeconds;
             }
+            
+            songTimer.SetAudio(audioSource);
 
             if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
             {
@@ -105,6 +109,8 @@ namespace _Content.Scripts.rhythm
         public void StartSong()
         {
             audioSource.Play();
+            
+            songTimer.StartTimer();
             
             foreach (var lane in lanes) lane.StartLane();
             foreach (var lane in laneVisualizators) lane.StartSong();
