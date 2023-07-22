@@ -1,12 +1,19 @@
-﻿using _Content.Scripts.zuma.scratch;
+﻿using System;
+using _Content.Scripts.zuma.scratch;
+using Spine.Unity;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace _Content.Scripts.zuma
 {
 	public class RotateLauncher : MonoBehaviour
 	{
 		private Vector3 lookPos;
+
+		[SerializeField] private SkeletonAnimation frogSkeletonAnimation;
+		[SerializeField] private AnimationReferenceAsset idleAnimation;
+		[SerializeField] private AnimationReferenceAsset attackAnimation;
 
 		[SerializeField] private Transform originPoint;
 		[SerializeField] private LayerMask hitLayer;
@@ -31,6 +38,11 @@ namespace _Content.Scripts.zuma
 		public ParticleSystem shootVfxGreen3;
 
 		public UnityEvent onShoot;
+
+		private void Start()
+		{
+			frogSkeletonAnimation.AnimationState.SetAnimation(0, idleAnimation, true);
+		}
 
 		private void RotatePlayerAlongMousePosition ()
 		{
@@ -83,6 +95,10 @@ namespace _Content.Scripts.zuma
 				color = Color.green;
 			}
 			laserGun.Fire(color);
+			
+			//TODO: play attack animation on frog
+			frogSkeletonAnimation.AnimationState.SetAnimation(0, attackAnimation, false);
+			frogSkeletonAnimation.AnimationState.AddAnimation(0, idleAnimation, true, 0);
 
 			//FireWorks(note);
 			

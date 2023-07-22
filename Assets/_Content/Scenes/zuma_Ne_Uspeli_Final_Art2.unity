@@ -10628,6 +10628,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d55e679e834013b9b7ae7993dfffd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frogSkeletonAnimation: {fileID: 1900312460}
+  idleAnimation: {fileID: 11400000, guid: baa19bbb515355c4d846744e2cc3d07b, type: 2}
+  attackAnimation: {fileID: 11400000, guid: 998f55dfa4f89b94d8d7962fa07bc032, type: 2}
   originPoint: {fileID: 1486479095}
   hitLayer:
     serializedVersion: 2
