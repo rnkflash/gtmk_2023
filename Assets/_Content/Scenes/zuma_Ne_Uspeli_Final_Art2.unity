@@ -10720,7 +10720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   analyzer: {fileID: 976081679}
-  intensity: 3
+  intensity: 15
   colorShaderName: _Color
 --- !u!23 &289990890
 MeshRenderer:
@@ -11076,7 +11076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   analyzer: {fileID: 976081679}
-  intensity: 3
+  intensity: 15
   colorShaderName: _Color
 --- !u!212 &343976561
 SpriteRenderer:
@@ -52841,7 +52841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   analyzer: {fileID: 976081679}
-  intensity: 4
+  intensity: 20
   colorShaderName: _Color
 --- !u!212 &1262443189
 SpriteRenderer:

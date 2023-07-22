@@ -13,7 +13,6 @@ namespace _Content.Scripts.rhythm
         public KeyCode input;
         public List<double> timeStamps = new List<double>();
 
-        int spawnIndex = 0;
         int inputIndex = 0;
 
         private double nextEvent = -1.0d;
@@ -111,7 +110,7 @@ namespace _Content.Scripts.rhythm
                 if (timeStamp + marginOfError <= audioTime)
                 {
                     Miss();
-                    print($"Missed {inputIndex} note, {timeStamp} | {marginOfError} | {audioTime}");
+                    //print($"Missed {inputIndex} note, {timeStamp} | {marginOfError} | {audioTime}");
                     inputIndex++;
                     if (vfxBad != null)
                     {
