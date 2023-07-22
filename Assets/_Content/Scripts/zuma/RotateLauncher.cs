@@ -16,6 +16,8 @@ namespace _Content.Scripts.zuma
 		[SerializeField] private AnimationReferenceAsset attackAnimation;
 		[SerializeField] private AnimationReferenceAsset dieAndDisappearAnimation;
 		[SerializeField] private AnimationReferenceAsset winLeapAnimation;
+		[SerializeField] private AnimationReferenceAsset rightAttackAnimation;
+		[SerializeField] private AnimationReferenceAsset leftAttackAnimation;
 		
 		[SerializeField] private SkeletonAnimation starSkeletonAnimation;
 		[SerializeField] private AnimationReferenceAsset starDieAnimation;
@@ -185,6 +187,8 @@ namespace _Content.Scripts.zuma
 				transform.LookAt (slime.transform.position, Vector3.back);
 		}
 
+		private int currentShootCycle = 0;
+
 		private void FireWorks(string note)
 		{
 			var color = Color.white;
@@ -195,8 +199,10 @@ namespace _Content.Scripts.zuma
 				if (shootVfxRed1 != null)
 				{
 					shootVfxRed1.Emit(1);
-					shootVfxRed2.Emit(1);
-					shootVfxRed3.Emit(1);
+					if (currentShootCycle == 0)
+						shootVfxRed2.Emit(1); //right
+					else
+						shootVfxRed3.Emit(1); //left
 				}
 			}
 			
@@ -206,8 +212,10 @@ namespace _Content.Scripts.zuma
 				if (shootVfxBlue1 != null)
 				{
 					shootVfxBlue1.Emit(1);
-					shootVfxBlue2.Emit(1);
-					shootVfxBlue3.Emit(1);
+					if (currentShootCycle == 0)
+						shootVfxBlue2.Emit(1); //right
+					else
+						shootVfxBlue3.Emit(1); //left
 				}
 			}
 
@@ -217,8 +225,10 @@ namespace _Content.Scripts.zuma
 				if (shootVfxYellow1 != null)
 				{
 					shootVfxYellow1.Emit(1);
-					shootVfxYellow2.Emit(1);
-					shootVfxYellow3.Emit(1);
+					if (currentShootCycle == 0)
+						shootVfxYellow2.Emit(1); //right
+					else
+						shootVfxYellow3.Emit(1); //left
 				}
 			}
 
@@ -228,10 +238,22 @@ namespace _Content.Scripts.zuma
 				if (shootVfxGreen1 != null)
 				{
 					shootVfxGreen1.Emit(1);
-					shootVfxGreen2.Emit(1);
-					shootVfxGreen3.Emit(1);
+					if (currentShootCycle == 0)
+						shootVfxGreen2.Emit(1); //right
+					else
+						shootVfxGreen3.Emit(1); //left
 				}
 			}
+
+			if (currentShootCycle == 0)
+				frogSkeletonAnimation.AnimationState.SetAnimation(0, rightAttackAnimation, false);
+			else
+				frogSkeletonAnimation.AnimationState.SetAnimation(0, leftAttackAnimation, false);
+			frogSkeletonAnimation.AnimationState.AddAnimation(0, idleAnimation, true, 0);
+
+			currentShootCycle++;
+			if (currentShootCycle > 1)
+				currentShootCycle = 0;
 		}
 		
 	}

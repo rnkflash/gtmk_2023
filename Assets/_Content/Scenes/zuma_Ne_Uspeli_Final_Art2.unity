@@ -10633,6 +10633,8 @@ MonoBehaviour:
   attackAnimation: {fileID: 11400000, guid: 998f55dfa4f89b94d8d7962fa07bc032, type: 2}
   dieAndDisappearAnimation: {fileID: 11400000, guid: 307ddc6becd9c6647b856a3ae1865393, type: 2}
   winLeapAnimation: {fileID: 11400000, guid: 991facefba51618438173042e4d6ce5e, type: 2}
+  rightAttackAnimation: {fileID: 11400000, guid: 325c53195faf1d74396f2105650e241f, type: 2}
+  leftAttackAnimation: {fileID: 11400000, guid: 92484d9eeb9a1f34094fcfe6f9a2a824, type: 2}
   starSkeletonAnimation: {fileID: 1159516750}
   starDieAnimation: {fileID: 11400000, guid: 52ad90cb7c2572e4a924d29e58027f5d, type: 2}
   starGlowObject: {fileID: 289990887}
