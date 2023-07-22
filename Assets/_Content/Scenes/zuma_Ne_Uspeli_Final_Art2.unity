@@ -10635,6 +10635,7 @@ MonoBehaviour:
   winLeapAnimation: {fileID: 11400000, guid: 991facefba51618438173042e4d6ce5e, type: 2}
   starSkeletonAnimation: {fileID: 1159516750}
   starDieAnimation: {fileID: 11400000, guid: 52ad90cb7c2572e4a924d29e58027f5d, type: 2}
+  starGlowObject: {fileID: 289990887}
   stopTheseSkeletonAnimations:
   - {fileID: 300161106}
   - {fileID: 3905526}
@@ -16831,7 +16832,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1750618676}
         m_TargetAssemblyTypeName: FinishLevelScript, Assembly-CSharp
-        m_MethodName: Lose
+        m_MethodName: Win
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

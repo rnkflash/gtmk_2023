@@ -127,10 +127,11 @@ namespace _Content.Scripts.zuma.scratch
             if (slimes.Count == points.Length && winOnce)
             {
                 winEvent?.Invoke();
+                winOnce = false;
             }
             
         }
-
+        
         private bool winOnce = true;
 
         private bool IsFirstCorps(Slime slime)

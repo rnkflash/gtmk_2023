@@ -19,6 +19,7 @@ namespace _Content.Scripts.zuma
 		
 		[SerializeField] private SkeletonAnimation starSkeletonAnimation;
 		[SerializeField] private AnimationReferenceAsset starDieAnimation;
+		[SerializeField] private GameObject starGlowObject;
 		
 		[SerializeField] private SkeletonAnimation[] stopTheseSkeletonAnimations;
 
@@ -134,7 +135,7 @@ namespace _Content.Scripts.zuma
 			}
 
 			starSkeletonAnimation.AnimationState.SetAnimation(0, starDieAnimation, false);
-
+			starGlowObject.SetActive(false);
 		}
 
 		public void PlayLoseAnimationSeries()
