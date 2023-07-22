@@ -153,6 +153,7 @@ namespace _Content.Scripts.zuma
 
 		public void FireBlankLaser(string note)
 		{
+			if (!isActive) return;
 			hitSound.Play();
 			FireWorks(note);
 		}
@@ -244,7 +245,7 @@ namespace _Content.Scripts.zuma
 						shootVfxGreen3.Emit(1); //left
 				}
 			}
-
+			
 			if (currentShootCycle == 0)
 				frogSkeletonAnimation.AnimationState.SetAnimation(0, rightAttackAnimation, false);
 			else
