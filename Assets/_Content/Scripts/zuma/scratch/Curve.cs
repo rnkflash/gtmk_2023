@@ -96,14 +96,6 @@ namespace _Content.Scripts.zuma.scratch
                 slime.FinishMovements();
             }
             
-            foreach (var slime in slimes)
-            {
-                if (!IsFirstCorps(slime) && !slime.moved)
-                {
-                    TryMoveSlime(slime, slime.tile - 1);
-                }
-            }
-            
             slimes.Reverse();
             foreach (var slime in slimes)
             {
@@ -111,6 +103,14 @@ namespace _Content.Scripts.zuma.scratch
                     TryMoveSlime(slime, slime.tile + 1);
             }
             slimes.Reverse();
+            
+            foreach (var slime in slimes)
+            {
+                if (!IsFirstCorps(slime) && !slime.moved)
+                {
+                    TryMoveSlime(slime, slime.tile - 1);
+                }
+            }
 
             if (GetTile(0).slime == null)
             {
