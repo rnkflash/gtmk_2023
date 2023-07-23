@@ -94,10 +94,6 @@ namespace _Content.Scripts.rhythm
                     if (Math.Abs(audioTime - timeStamp) < marginOfError)
                     {
                         Hit();
-                        if (vfxGood != null)
-                        {
-                            vfxGood.Emit(1);
-                        }
                         //print($"Hit on {inputIndex} note");
                         inputIndex++;
                     }
@@ -112,22 +108,23 @@ namespace _Content.Scripts.rhythm
                     Miss();
                     //print($"Missed {inputIndex} note, {timeStamp} | {marginOfError} | {audioTime}");
                     inputIndex++;
-                    if (vfxBad != null)
-                    {
-                        vfxBad.Emit(1);
-                    }
                 }
             }
         }
 
         private void Hit()
         {
-            hitEvent?.Invoke();        
+            hitEvent?.Invoke();
+            if (vfxGood != null)
+                vfxGood.Emit(1);
+            
         }
 
         private void Miss()
         {
             missEvent?.Invoke();
+            if (vfxBad != null)
+                vfxBad.Emit(1);
         }
     }
 }

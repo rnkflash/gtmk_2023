@@ -584,7 +584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 7778983036897313453, guid: 73b43e3fd94020a4d97f30ebf2c387e2, type: 3}
   lane: {fileID: 939297322}
-  noteMoveSpeed: 5
+  noteMoveSpeed: 4
   playLine: 0
   terminatorLine: -0.25
   appearLine: 5.61
@@ -21887,7 +21887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 7778983036897313453, guid: c37ad2e3fe428894cb6c7244c1b069ae, type: 3}
   lane: {fileID: 1273793355}
-  noteMoveSpeed: 5
+  noteMoveSpeed: 4
   playLine: 0
   terminatorLine: -0.25
   appearLine: 5.61
@@ -59815,7 +59815,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.616, y: 4.206}
+  m_AnchoredPosition: {x: -9.616, y: 4.177}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1792961257
@@ -94447,7 +94447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2022760016}
   m_Layer: 0
-  m_Name: NOTES
+  m_Name: LANE VISUALIZATORS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99397,7 +99397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 7778983036897313453, guid: 092b23810cac54d46971531c6d24e95f, type: 3}
   lane: {fileID: 1672821852}
-  noteMoveSpeed: 5
+  noteMoveSpeed: 4
   playLine: 0
   terminatorLine: -0.25
   appearLine: 5.61
@@ -99447,7 +99447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 7778983036897313453, guid: de1806ef3f8fa8546a9a2f5c6c1d1001, type: 3}
   lane: {fileID: 1976377512}
-  noteMoveSpeed: 5
+  noteMoveSpeed: 4
   playLine: 0
   terminatorLine: -0.25
   appearLine: 5.61
