@@ -54,6 +54,8 @@ namespace _Content.Scripts.zuma
 
 		private bool isActive;
 
+		private int currentShootCycle;
+
 		private void Start()
 		{
 			frogSkeletonAnimation.AnimationState.SetAnimation(0, idleAnimation, true);
@@ -74,52 +76,24 @@ namespace _Content.Scripts.zuma
 			transform.LookAt (transform.position + lookDir, Vector3.back);
 		}
 
-		private void ShootBall()
+		public void FireLaser(string note)
 		{
-			RayCastBalls();
-		}
+			if (!isActive) return;
 
-		private Vector2 RayCastBalls()
-		{
-			var start = new Vector2(originPoint.position.x, originPoint.position.y);
-			var end = new Vector2(originPoint.forward.x, originPoint.forward.y);
-			var hit2D = Physics2D.Raycast(start, end, 100f, hitLayer);
-			return hit2D.collider ? hit2D.point : start + end * 100.0f;
-		}
+			var color = note switch
+			{
+				"Q" => Color.red,
+				"W" => Color.blue,
+				"E" => Color.yellow,
+				"R" => Color.green,
+				_ => Color.white
+			};
 
-		private void FireLaser(string note)
-		{
-			if (!isActive)
-				return;
-			
-			var color = Color.white;
-			
-			if (note == "Q")
-			{
-				color = Color.red;
-			}
-			
-			if (note == "W")
-			{
-				color = Color.blue;
-			}
-
-			if (note == "E")
-			{
-				color = Color.yellow;
-			}
-
-			if (note == "R")
-			{
-				color = Color.green;
-			}
 			laserGun.Fire(color);
 			
 			frogSkeletonAnimation.AnimationState.SetAnimation(0, attackAnimation, false);
 			frogSkeletonAnimation.AnimationState.AddAnimation(0, idleAnimation, true, 0);
 
-			//FireWorks(note);
-			
 			missSound.Play();
 			
 			onShoot?.Invoke();
@@ -158,26 +132,6 @@ namespace _Content.Scripts.zuma
 			FireWorks(note);
 		}
 
-		public void NotePlayedQ()
-		{
-			FireLaser("Q");
-		}
-		
-		public void NotePlayedW()
-		{
-			FireLaser("W");
-		}
-		
-		public void NotePlayedE()
-		{
-			FireLaser("E");
-		}
-		
-		public void NotePlayedR()
-		{
-			FireLaser("R");
-		}
-
 		public void Aim()
 		{
 			if (curve == null || !isActive)
@@ -187,8 +141,6 @@ namespace _Content.Scripts.zuma
 			if (slime != null)
 				transform.LookAt (slime.transform.position, Vector3.back);
 		}
-
-		private int currentShootCycle = 0;
 
 		private void FireWorks(string note)
 		{

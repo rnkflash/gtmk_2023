@@ -17,15 +17,21 @@ namespace _Content.Scripts.rhythm
 
         private double nextEvent = -1.0d;
         private float timer;
-        private bool startLane = false;
-        private bool pumpingEvents = false;
+        private bool isStarted;
 
-        public UnityEvent fireEvent;
         public UnityEvent hitEvent;
+        public UnityEvent notHitEvent;
         public UnityEvent missEvent;
         
         public ParticleSystem vfxGood;
         public ParticleSystem vfxBad;
+        public ParticleSystem vfxExplosion;
+
+        private float penaltyTime = 0.51f;
+        private float penaltyTimer;
+        
+        private float protectionFromPenaltyTime = 0.51f;
+        private float protectionFromPenaltyTimer;
 
         public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
         {
@@ -44,7 +50,8 @@ namespace _Content.Scripts.rhythm
 
         public void StartLane()
         {
-            startLane = true;
+            timer = 0;
+            isStarted = true;
         }
 
         private double GetEvent(double gt)
@@ -61,70 +68,68 @@ namespace _Content.Scripts.rhythm
             return result;
         }
 
-        void Update()
+        private void Update()
         {
-            if (startLane)
-            {
-                timer = 0;
-                startLane = false;
-                pumpingEvents = true;
-            }
-            
-            if (!pumpingEvents || nextEvent < 0)
-                return;
+            if (!isStarted || nextEvent < 0) return;
 
             timer += Time.deltaTime;
+            
+            if (penaltyTimer > 0)
+                penaltyTimer -= Time.deltaTime;
+            
+            if (protectionFromPenaltyTimer > 0)
+                protectionFromPenaltyTimer -= Time.deltaTime;
 
             if (timer >= nextEvent)
-            {
                 nextEvent = GetEvent(nextEvent);
-                fireEvent?.Invoke();
-            }
+
+            if (inputIndex >= timeStamps.Count) return;
             
+            double timeStamp = timeStamps[inputIndex];
+            double marginOfError = SongManager.Instance.marginOfError;
+            double audioTime = SongManager.GetAudioSourceTime() - (SongManager.Instance.inputDelayInMilliseconds / 1000.0);
 
-            if (inputIndex < timeStamps.Count)
+            if (Input.GetKeyDown(input) && penaltyTimer <= 0)
             {
-                double timeStamp = timeStamps[inputIndex];
-                double marginOfError = SongManager.Instance.marginOfError;
-                double audioTime = SongManager.GetAudioSourceTime() -
-                                   (SongManager.Instance.inputDelayInMilliseconds / 1000.0);
-
-                if (Input.GetKeyDown(input))
+                if (Math.Abs(audioTime - timeStamp) < marginOfError)
                 {
-                    if (Math.Abs(audioTime - timeStamp) < marginOfError)
-                    {
-                        Hit();
-                        //print($"Hit on {inputIndex} note");
-                        inputIndex++;
-                    }
-                    else
-                    {
-                        //print($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
-                    }
-                }
-
-                if (timeStamp + marginOfError <= audioTime)
-                {
-                    Miss();
-                    //print($"Missed {inputIndex} note, {timeStamp} | {marginOfError} | {audioTime}");
+                    Hit();
+                    //print($"Hit on {inputIndex} note");
                     inputIndex++;
+                    protectionFromPenaltyTimer = protectionFromPenaltyTime;
+                }
+                else if (protectionFromPenaltyTimer <= 0)
+                {
+                    //print($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
+                    Miss();
+                    penaltyTimer = penaltyTime;
                 }
             }
+
+            if (timeStamp + marginOfError <= audioTime)
+            {
+                TimeOut();
+                //print($"Missed {inputIndex} note, {timeStamp} | {marginOfError} | {audioTime}");
+                inputIndex++;
+            }
+        }
+
+        private void Miss()
+        {
+            notHitEvent?.Invoke();
+            vfxBad.Emit(1);
         }
 
         private void Hit()
         {
             hitEvent?.Invoke();
-            if (vfxGood != null)
-                vfxGood.Emit(1);
-            
+            vfxGood.Emit(1);
         }
 
-        private void Miss()
+        private void TimeOut()
         {
             missEvent?.Invoke();
-            if (vfxBad != null)
-                vfxBad.Emit(1);
+            vfxExplosion.Emit(1);
         }
     }
 }
