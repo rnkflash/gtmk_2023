@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class BeatMachine : MonoBehaviour
 {
     public UnityEvent fireThis;
-    public int bpm = 60;
+    public int bpm = 100;
     private bool hasStarted = false;
     private float timePassed = 0.0f;
     private float nextBeat = 0.0f;
@@ -51,5 +51,11 @@ public class BeatMachine : MonoBehaviour
         }
 
         return current;
+    }
+
+    public void SetBPM(int bpm)
+    {
+        this.bpm = bpm;
+        beatSpacing = 60.0f / bpm;
     }
 }

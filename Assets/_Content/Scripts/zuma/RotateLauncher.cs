@@ -13,11 +13,15 @@ namespace _Content.Scripts.zuma
 
 		[SerializeField] private SkeletonAnimation frogSkeletonAnimation;
 		[SerializeField] private AnimationReferenceAsset idleAnimation;
+		[SerializeField] private AnimationReferenceAsset rageAnimation;
+		[SerializeField] private AnimationReferenceAsset panicAnimation;
 		[SerializeField] private AnimationReferenceAsset attackAnimation;
 		[SerializeField] private AnimationReferenceAsset dieAndDisappearAnimation;
 		[SerializeField] private AnimationReferenceAsset winLeapAnimation;
 		[SerializeField] private AnimationReferenceAsset rightAttackAnimation;
 		[SerializeField] private AnimationReferenceAsset leftAttackAnimation;
+
+		private AnimationReferenceAsset currentIdleAnimation;
 		
 		[SerializeField] private SkeletonAnimation starSkeletonAnimation;
 		[SerializeField] private AnimationReferenceAsset starDieAnimation;
@@ -58,7 +62,8 @@ namespace _Content.Scripts.zuma
 
 		private void Start()
 		{
-			frogSkeletonAnimation.AnimationState.SetAnimation(0, idleAnimation, true);
+			SetIdleAnimation(0);
+			frogSkeletonAnimation.AnimationState.SetAnimation(0, currentIdleAnimation, true);
 			isActive = true;
 		}
 
@@ -92,7 +97,7 @@ namespace _Content.Scripts.zuma
 			laserGun.Fire(color);
 			
 			frogSkeletonAnimation.AnimationState.SetAnimation(0, attackAnimation, false);
-			frogSkeletonAnimation.AnimationState.AddAnimation(0, idleAnimation, true, 0);
+			frogSkeletonAnimation.AnimationState.AddAnimation(0, currentIdleAnimation, true, 0);
 
 			missSound.Play();
 			
@@ -202,11 +207,21 @@ namespace _Content.Scripts.zuma
 				frogSkeletonAnimation.AnimationState.SetAnimation(0, rightAttackAnimation, false);
 			else
 				frogSkeletonAnimation.AnimationState.SetAnimation(0, leftAttackAnimation, false);
-			frogSkeletonAnimation.AnimationState.AddAnimation(0, idleAnimation, true, 0);
+			frogSkeletonAnimation.AnimationState.AddAnimation(0, currentIdleAnimation, true, 0);
 
 			currentShootCycle++;
 			if (currentShootCycle > 1)
 				currentShootCycle = 0;
+		}
+
+		public void SetIdleAnimation(int level)
+		{
+			currentIdleAnimation = level switch
+			{
+				0 => idleAnimation,
+				1 => panicAnimation,
+				_ => rageAnimation
+			};
 		}
 		
 	}
