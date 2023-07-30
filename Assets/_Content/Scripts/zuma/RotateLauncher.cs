@@ -219,7 +219,9 @@ namespace _Content.Scripts.zuma
 			currentIdleAnimation = level switch
 			{
 				0 => idleAnimation,
-				1 => panicAnimation,
+				1 => idleAnimation,
+				2 => panicAnimation,
+				3 => panicAnimation,
 				_ => rageAnimation
 			};
 		}

@@ -1,6 +1,5 @@
 using System;
 using _Content.Scripts.zuma;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +9,7 @@ namespace _Content.Scripts.rhythm
     {
         [SerializeField] private ComboLevel[] levels;
         [SerializeField] private BeatMachine beatMachine;
-        [SerializeField] private TMP_Text comboLevelText;
+        [SerializeField] private ComboMeter comboMeter;
         [SerializeField] private RotateLauncher frog;
 
         [HideInInspector] public int level;
@@ -28,7 +27,7 @@ namespace _Content.Scripts.rhythm
 
         private void Start()
         {
-            comboLevelText.text = "Combo Level " + level;
+            comboMeter.SetValue(level);
         }
 
         public void Hit()
@@ -64,7 +63,7 @@ namespace _Content.Scripts.rhythm
             onComboLevelUp?.Invoke();
             beatMachine.SetBPM(levels[level].bpm);
             
-            comboLevelText.text = "Combo Level " + level;
+            comboMeter.SetValue(level);
             
             frog.SetIdleAnimation(level);
         }
@@ -74,7 +73,7 @@ namespace _Content.Scripts.rhythm
             onComboBreak?.Invoke();
             beatMachine.SetBPM(levels[level].bpm);
 
-            comboLevelText.text = "Combo Level " + level;
+            comboMeter.SetValue(level);
             
             frog.SetIdleAnimation(level);
         }
